@@ -6,13 +6,13 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/07 20:02:15 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 20:04:40 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_rra(t_stack **stk_a)
+void	do_ra(t_stack **stk_a)
 {
 	t_stack	*last;
 	t_stack	*new_last;
@@ -29,10 +29,10 @@ void	do_rra(t_stack **stk_a)
 	new_last->next = NULL;
 	last->next = *stk_a;
 	*stk_a = last;
-	write(1, "rra\n", 4);
+	write(1, "ra\n", 3);
 }
 
-void	do_rrb(t_stack **stk_a)
+void	do_rb(t_stack **stk_a)
 {
 	t_stack	*last;
 	t_stack	*new_last;
@@ -49,14 +49,14 @@ void	do_rrb(t_stack **stk_a)
 	new_last->next = NULL;
 	last->next = *stk_a;
 	*stk_a = last;
-	write(1, "rrb\n", 4);
+	write(1, "rb\n", 3);
 }
 
-void	do_rrr(t_stack **stk_a, t_stack **stk_b)
+void	do_rr(t_stack **stk_a, t_stack **stk_b)
 {
-	do_rra(stk_a);
-	do_rrb(stk_b);
-	write(1, "rrr\n", 4);
+	do_ra(stk_a);
+	do_rb(stk_b);
+	write(1, "rr\n", 3);
 }
 
 int	main(void)
@@ -65,9 +65,9 @@ int	main(void)
 	t_stack	*stk_b;
 	stk_a = tst_make_stack(4);
 	stk_b = tst_make_stack(4);
-	//do_rra(&stk_a);
-	//do_rrb(&stk_b);
-	//do_rrr(&stk_a, &stk_b);
+	//do_ra(&stk_a);
+	//do_rb(&stk_b);
+	//do_rr(&stk_a, &stk_b);
 	printf("\nstack A\n");
 	tst_print_stack(&stk_a);
 	printf("\nstack B\n");
