@@ -6,22 +6,19 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/07 20:07:10 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 20:12:05 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_rra(t_stack **stk_a)
+void	do_rra(t_stack **stk_a, int	toggle)
 {
 	t_stack	*last;
 	t_stack	*buf;
 
 	if (!*stk_a || !(*stk_a)->next)
-	{
-		printf("nope\n");
 		return ;
-	}
 	last = ft_lstlast(*stk_a);
 	buf = *stk_a;
 	while (buf->next != last)
@@ -29,19 +26,17 @@ void	do_rra(t_stack **stk_a)
 	buf->next = NULL;
 	last->next = *stk_a;
 	*stk_a = last;
-	write(1, "rra\n", 4);
+	if (toggle == 1)
+		write(1, "rra\n", 4);
 }
 
-void	do_rrb(t_stack **stk_a)
+void	do_rrb(t_stack **stk_a, int toggle)
 {
 	t_stack	*last;
 	t_stack	*buf;
 
 	if (!*stk_a || !(*stk_a)->next)
-	{
-		printf("nope\n");
 		return ;
-	}
 	last = ft_lstlast(*stk_a);
 	buf = *stk_a;
 	while (buf->next != last)
@@ -49,14 +44,16 @@ void	do_rrb(t_stack **stk_a)
 	buf->next = NULL;
 	last->next = *stk_a;
 	*stk_a = last;
-	write(1, "rrb\n", 4);
+	if (toggle == 1)
+		write(1, "rrb\n", 4);
 }
 
-void	do_rrr(t_stack **stk_a, t_stack **stk_b)
+void	do_rrr(t_stack **stk_a, t_stack **stk_b, int toggle)
 {
-	do_rra(stk_a);
-	do_rrb(stk_b);
-	write(1, "rrr\n", 4);
+	do_rra(stk_a, 0);
+	do_rrb(stk_b, 0);
+	if (toggle == 1)
+		write(1, "rrr\n", 4);
 }
 
 int	main(void)
@@ -67,7 +64,7 @@ int	main(void)
 	stk_b = tst_make_stack(4);
 	//do_rra(&stk_a);
 	//do_rrb(&stk_b);
-	do_rrr(&stk_a, &stk_b);
+	do_rrr(&stk_a, &stk_b, 0);
 	printf("\nstack A\n");
 	tst_print_stack(&stk_a);
 	printf("\nstack B\n");
