@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   swap_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:40:27 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/07 16:10:54 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 16:17:37 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	do_sa(t_stack **stk_a)
 {
 	t_stack	*second_node;
-	
+
 	if (!stk_a || !*stk_a || !(*stk_a)->next)
 	{
 		printf("nothing\n");
@@ -31,7 +31,7 @@ void	do_sa(t_stack **stk_a)
 void	do_sb(t_stack **stk_b)
 {
 	t_stack	*second_node;
-	
+
 	if (!stk_b || !*stk_b || !(*stk_b)->next)
 		return ;
 	second_node = *stk_b;
@@ -46,7 +46,7 @@ void	do_ss(t_stack **stk_a, t_stack **stk_b)
 	do_sa(stk_a);
 	do_sb(stk_b);
 }
-
+/*
 int	main (void)
 {
 	t_stack	*stk_a;
@@ -60,4 +60,4 @@ int	main (void)
 	printf("\nnow B \n");
 	tst_print_stack(&stk_b);
 	return (0);
-}
+}*/
