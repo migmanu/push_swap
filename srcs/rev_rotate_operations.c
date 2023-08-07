@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/07 19:40:05 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 20:07:10 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	do_rra(t_stack **stk_a)
 {
 	t_stack	*last;
-	t_stack	*new_last;
+	t_stack	*buf;
 
 	if (!*stk_a || !(*stk_a)->next)
 	{
@@ -23,10 +23,10 @@ void	do_rra(t_stack **stk_a)
 		return ;
 	}
 	last = ft_lstlast(*stk_a);
-	new_last = *stk_a;
-	while (new_last->next != last)
-		new_last = new_last->next;
-	new_last->next = NULL;
+	buf = *stk_a;
+	while (buf->next != last)
+		buf = buf->next;
+	buf->next = NULL;
 	last->next = *stk_a;
 	*stk_a = last;
 	write(1, "rra\n", 4);
@@ -35,7 +35,7 @@ void	do_rra(t_stack **stk_a)
 void	do_rrb(t_stack **stk_a)
 {
 	t_stack	*last;
-	t_stack	*new_last;
+	t_stack	*buf;
 
 	if (!*stk_a || !(*stk_a)->next)
 	{
@@ -43,10 +43,10 @@ void	do_rrb(t_stack **stk_a)
 		return ;
 	}
 	last = ft_lstlast(*stk_a);
-	new_last = *stk_a;
-	while (new_last->next != last)
-		new_last = new_last->next;
-	new_last->next = NULL;
+	buf = *stk_a;
+	while (buf->next != last)
+		buf = buf->next;
+	buf->next = NULL;
 	last->next = *stk_a;
 	*stk_a = last;
 	write(1, "rrb\n", 4);
@@ -58,7 +58,7 @@ void	do_rrr(t_stack **stk_a, t_stack **stk_b)
 	do_rrb(stk_b);
 	write(1, "rrr\n", 4);
 }
-/*
+
 int	main(void)
 {
 	t_stack	*stk_a;
@@ -73,4 +73,4 @@ int	main(void)
 	printf("\nstack B\n");
 	tst_print_stack(&stk_b);
 	return (0);
-}*/
+}
