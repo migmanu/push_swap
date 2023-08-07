@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:40:27 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/07 13:36:56 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 16:10:54 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,23 @@ void	do_sb(t_stack **stk_b)
 	write(1, "sb\n", 3);
 }
 
+void	do_ss(t_stack **stk_a, t_stack **stk_b)
+{
+	do_sa(stk_a);
+	do_sb(stk_b);
+}
+
 int	main (void)
 {
 	t_stack	*stk_a;
 	t_stack	*stk_b;
-	stk_a = tst_make_stack(1);
+	stk_a = tst_make_stack(6);
 	//do_sa(&stk_a);
-	//tst_print_stack(&stk_a);
-	printf("now B \n\n");
-	stk_b = tst_make_stack(10);
-	do_sa(&stk_b);
+	stk_b = tst_make_stack(5);
+	//do_sb(&stk_b);
+	do_ss(&stk_a, &stk_b);
+	tst_print_stack(&stk_a);
+	printf("\nnow B \n");
 	tst_print_stack(&stk_b);
 	return (0);
 }
