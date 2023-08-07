@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/06 00:11:30 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 13:30:17 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-t_stack	*do_sa(t_stack **stack_a);
+void	do_sa(t_stack **stk_a);
 
 void	tst_add_node_end(t_stack **stack, t_stack *new);
 t_stack	*tst_make_stack(int	n_nodes);

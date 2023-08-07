@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 22:06:39 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/05 23:50:37 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/07 12:52:53 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	tst_print_stack(t_stack **root)
 	
 	while (curr != NULL)
 	{
-		printf("node %d\n", curr->nbr);
+		printf("node %ld\n", curr->nbr);
 		curr = curr->next;
 	}
 }
