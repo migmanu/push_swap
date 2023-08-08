@@ -6,8 +6,18 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:33:06 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/08 18:33:51 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/08/08 19:30:20 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_string(char *str)
+{
+	long	idx;
+	while (str[idx] != '\0')
+	{
+		
+		i++;
+	}
+}
