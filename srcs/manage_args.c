@@ -6,43 +6,42 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/10 21:17:25 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 14:05:45 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // File for storing input related functions: check valid, convert to int.
 #include "push_swap.h"
 
-// Basic function that check all char are numbers. Return -1 on error. Empty
-// string is treated as error.
-int	check_str(char *str)
+// Basic function that check all char are numbers.
+t_bool	check_str(char *str)
 {
 	int	k;
 
 	k = 0;
 	if (str[k] == '\0')
-		return (-1);
+		return (false);
 	while (str[k] != '\0')
 	{
 		if (str[k] < 48 || str[k] > 58)
-			return (-1);
+			return (false);
 		k++;
 	}
-	return (1);
+	return (true);
 }
 
-int	check_args(int argc, char *argv[])
+t_bool	check_args(int argc, char *argv[])
 {
 	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (check_str(argv[i]) == -1)
-			return (-1);
+		if (check_str(argv[i]) == false)
+			return (false);
 		i++;
 	}
-	return (1);
+	return (true);
 }
 
 int	main(void)
@@ -52,6 +51,6 @@ int	main(void)
 	args[1] = "125";
 	args[2] = "";
 	printf("%d\n", check_args(3, args));
-	printf("str %d", check_str("0"));
+	printf("str %d", check_str(""));
 	return (0);
 }
