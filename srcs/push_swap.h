@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/07 19:39:36 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 13:58:22 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ typedef struct s_stack
 	long			nbr;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef enum t_bool
+{
+	false,
+	true
+}	t_bool;
+
+# define FALSE false
+# define TRUE true
 
 void	do_sa(t_stack **stk_a);
 void	do_sb(t_stack **stk_b);
