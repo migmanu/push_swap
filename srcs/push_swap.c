@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:26 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/10 20:38:38 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 14:48:21 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 	{
 		printf("Two args\n");
-		//check_str(argv[1]);
+		if (check_args(argc, argv))
+			printf("string OK");
+		else
+			printf("Error\n");
 	}
 	else
 	{
-		printf("pass\n");
+		printf("Several args\n");
+		if (check_args(argc, argv))
+			printf("args OK");
+		else
+			printf("Error\n");
 	}
-	printf("%d\n", ft_atoi(argv[1]));
+	//printf("%d\n", ft_atoi(argv[1]));
 	return (0);
 }

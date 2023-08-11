@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/11 14:03:13 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 14:11:26 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	do_pa(t_stack **stk_a, t_stack **stk_b);
 void	do_pb(t_stack **stk_a, t_stack **stk_b);
 
 t_stack	*ft_lstlast(t_stack *lst);
+
+t_bool	check_args(int argc, char *argv[]);
 
 void	tst_add_node_end(t_stack **stack, t_stack *new);
 t_stack	*tst_make_stack(int n_nodes);
