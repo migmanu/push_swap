@@ -6,15 +6,16 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/11 15:03:02 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 15:51:28 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // File for storing input related functions: check valid, convert to int.
 #include "push_swap.h"
 
-// Basic function that check all char are numbers.
-t_bool	check_str(char *str)
+// Basic function that check all chars are numbers. Toggle determines 
+// wether space character is considered ok
+t_bool	check_str(char *str, int toggle)
 {
 	int	k;
 
@@ -23,8 +24,16 @@ t_bool	check_str(char *str)
 		return (false);
 	while (str[k] != '\0')
 	{
-		if ((str[k] < 48 || str[k] > 58) && str[k] != 32)
-			return (false);
+		if (toggle == 0)
+		{
+			if (str[k] < 48 || str[k] > 58)
+				return (false);
+		}
+		else
+		{
+			if ((str[k] < 48 || str[k] > 58) && str[k] != 32)
+				return (false);
+		}
 		k++;
 	}
 	return (true);
@@ -37,7 +46,7 @@ t_bool	check_args(int argc, char *argv[])
 	i = 1;
 	while (i < argc)
 	{
-		if (check_str(argv[i]) == false)
+		if (check_str(argv[i], 0) == false)
 			return (false);
 		i++;
 	}
