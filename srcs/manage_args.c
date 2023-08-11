@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/11 14:05:45 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 15:03:02 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	check_str(char *str)
 		return (false);
 	while (str[k] != '\0')
 	{
-		if (str[k] < 48 || str[k] > 58)
+		if ((str[k] < 48 || str[k] > 58) && str[k] != 32)
 			return (false);
 		k++;
 	}
@@ -43,7 +43,7 @@ t_bool	check_args(int argc, char *argv[])
 	}
 	return (true);
 }
-
+/*
 int	main(void)
 {
 	char *args[3];
@@ -53,4 +53,4 @@ int	main(void)
 	printf("%d\n", check_args(3, args));
 	printf("str %d", check_str(""));
 	return (0);
-}
+}*/
