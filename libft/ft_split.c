@@ -6,7 +6,7 @@
 /*   By: jmigoya- jmigoya-@student.42berlin.de      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 19:22:49 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/09 20:22:21 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/11 19:59:45 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_allocate(char **vec, const char *s, char c)
 			k = i;
 			while (s[k] != c && s[k] != '\0')
 				k++;
-			vec[str_nbr] = ft_substr(s, i, (k - i - 1));
+			vec[str_nbr] = ft_substr(s, i, (k - i));
 			str_nbr++;
 			i = k;
 		}
@@ -69,12 +69,13 @@ char	**ft_split(char const *s, char c)
 	ft_allocate(vec, s, c);
 	return (vec);
 }
-/*
-int main(void)
+
+int main(int argc, char *argv[])
 {
-    char s[] = "\n";
-    char c = 'x';
-	printf("strs: %d\n", ft_count_strs(s, c));
+    char *s = argv[1];
+    char c = ' ';
+	//printf("strs: %d\n", ft_count_strs(s, c));
+	printf("str: %s\n", s);
 
     char **res = ft_split(s, c);
     if (res)
@@ -82,13 +83,12 @@ int main(void)
         int i = 0;
         while (res[i])
         {
-			write(1, res[i], ft_strlen(res[i]));
-//			write(1, "|", 1);
-			write(1, "\n", 1);
+			printf("%s\n", res[i]);
 			free(res[i]);
+			res[i] = NULL;
             i++;
         }
     }
 	free(res);
     return 0;
-}*/
+}
