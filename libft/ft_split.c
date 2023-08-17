@@ -6,7 +6,7 @@
 /*   By: jmigoya- jmigoya-@student.42berlin.de      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 19:22:49 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/17 00:39:47 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/17 11:15:20 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ char	*copy_word(const char *s, int start, int end)
 	char	*str;
 	int		i;
 
-	str = malloc(sizeof(char) * (end + 1));
-	if (str == NULL)
+	str = malloc(sizeof(char) * ((end - start) + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (start < end)
 		str[i++] = s[start++];
-	str[end] = '\0';
+	str[i] = '\0';
 	return (str);
 }
 
@@ -60,24 +60,25 @@ char	**ft_split(const char *s, char c)
 	vec[get_vec_size(s, c)] = NULL;
 	end = 0;
 	word = 0;
-	while (s[end] != '\0')
+	while (s[end] != '\0' && word < get_vec_size(s, c))
 	{
-		printf("while init\n");
 		while (s[end] == c)
 			end++;
 		start = end;
 		while (s[end] != c && s[end] != '\0')
 			end++;
 		vec[word] = copy_word(s, start, end);
+		if (vec[word] == NULL)
+			return (NULL);
 		word++;
 	}
 	return (vec);
 }
-
+/*
 int main(void)
 {
-    char *s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
-    char c = ' ';
+    char *s = "^^^1^^2a,^^^^3^^^^--h^^^^";
+    char c = '^';
 	printf("number of words:%d\n", get_vec_size(s, c));
 
     char **res = ft_split(s, c);
@@ -86,11 +87,12 @@ int main(void)
 		printf("null return\n");
 		return (0);
 	}
+	
     if (*res)
     {
 		printf("valid return\n");
 		int i = 0;
-        while (res[i])
+        while (i < get_vec_size(s, c))
         {
 			printf("%s\n", res[i]);
 			free(res[i]);
@@ -100,4 +102,4 @@ int main(void)
     }
 	free(res);
     return 0;
-}
+}*/
