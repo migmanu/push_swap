@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stk_utils.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/18 16:33:00 by jmigoya-         ###   ########.fr       */
+/*   Created: 2023/08/18 16:32:03 by jmigoya-          #+#    #+#             */
+/*   Updated: 2023/08/18 16:32:30 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	stklast(t_stack *stk)
+int	vec_size(const char *s, char c)
 {
-	if (stk == NULL)
-		return (NULL);
-	while (stk->next != NULL)
-		stk = lst->next;
-	return (stk);
-}
+	int	result;
+	int	i;
 
-t_stack	stk_add_last(t_stack *stk, t_stack node)
-{
-
+	result = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			result++;
+			while (s[i] != c && s[i + 1] != '\0')
+				i++;
+		}
+		i++;
+	}
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/18 15:40:48 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:33:10 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	do_sb(t_stack **stk_b);
 void	do_ss(t_stack **stk_a, t_stack **stk_b);
 void	do_pa(t_stack **stk_a, t_stack **stk_b);
 void	do_pb(t_stack **stk_a, t_stack **stk_b);
-
-t_stack	*ft_lstlast(t_stack *lst);
 
 t_bool	check_str(char *str, int toggle);
 t_bool	check_args(int argc, char *argv[]);
