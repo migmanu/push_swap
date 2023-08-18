@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 18:59:44 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/11 19:17:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/17 17:46:10 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_stack	create_stack(int argc, char **argv)
 		vec = argv;
 
 }
-
+/*
 int	main(void)
 {
 	return (0);
-}
+}*/

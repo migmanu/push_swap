@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/07 20:12:05 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/17 17:45:34 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	do_rrr(t_stack **stk_a, t_stack **stk_b, int toggle)
 	if (toggle == 1)
 		write(1, "rrr\n", 4);
 }
-
+/*
 int	main(void)
 {
 	t_stack	*stk_a;
@@ -70,4 +70,4 @@ int	main(void)
 	printf("\nstack B\n");
 	tst_print_stack(&stk_b);
 	return (0);
-}
+}*/
