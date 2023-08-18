@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/11 15:52:58 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/18 15:40:48 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	tst_add_node_end(t_stack **stack, t_stack *new);
 t_stack	*tst_make_stack(int n_nodes);
 void	tst_print_stack(t_stack **root);
 
+int	vec_size(const char *s, char c);
 #endif

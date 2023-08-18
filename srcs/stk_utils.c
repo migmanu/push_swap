@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   stk_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/07 19:38:05 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/18 16:18:35 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	stklast(t_stack stk)
 {
-	if (lst == NULL)
+	if (stk == NULL)
 		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	while (stk->next != NULL)
+		stk = lst->next;
+	return (stk);
+}
+
+int	vec_size(const char *s, char c)
+{
+	int	result;
+	int	i;
+
+	result = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			result++;
+			while (s[i] != c && s[i + 1] != '\0')
+				i++;
+		}
+		i++;
+	}
+	return (result);
 }

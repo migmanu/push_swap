@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/17 19:41:45 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/18 15:33:10 by jmigoya-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_bool	check_str(char *str, int toggle)
 	return (true);
 }
 
-t_bool	check_repeated(char *argv[])
+t_bool	check_repeated(char *argv[], int argc)
 {
 	int	i;
 	int	curr;
@@ -64,7 +64,7 @@ t_bool	check_repeated(char *argv[])
 			printf("i %d\n", i);
 		}
 		i = curr;
-		printf("end i: %d\n");
+		printf("end i: %d\n", i);
 	}
 	printf("no repeated args\n");
 	return (true);
@@ -78,13 +78,13 @@ t_bool	check_args(int argc, char *argv[])
 	while (argv[i] != NULL)
 	{
 		printf("checking: %s\n", argv[i]);
-		if (check_str(argv[i], 0) == false || check_repeated(argv) == false)
+		if (check_str(argv[i], 0) == false || check_repeated(argv, argc) == false)
 			return (false);
 		i++;
 	}
 	return (true);
 }
-
+/*
 int	main(void)
 {
 	char *args[3];
@@ -98,4 +98,4 @@ int	main(void)
 	printf("%d\n", check_args(3, args));
 	//printf("str %d", check_str(""));
 	return (0);
-}
+}*/
