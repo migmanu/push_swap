@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 18:59:44 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:25:36 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:27:50 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_stack	*create_stack(int argc, char **vec)
 	}
 	return (stk_a);
 }
-
+/*
 int	main(void)
 {
 	t_stack *root;
@@ -43,4 +43,4 @@ int	main(void)
 	root = create_stack(3, args);
 	tst_print_stack(&root);
 	return (0);
-}
+}*/

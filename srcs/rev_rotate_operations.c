@@ -6,13 +6,13 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/17 17:45:34 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:28:34 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_rra(t_stack **stk_a, int	toggle)
+void	do_rra(t_stack **stk_a, int toggle)
 {
 	t_stack	*last;
 	t_stack	*buf;

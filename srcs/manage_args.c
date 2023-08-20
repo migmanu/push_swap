@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/18 15:33:10 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/08/20 22:30:46 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,22 @@ t_bool	check_repeated(char *argv[], int argc)
 	int	i;
 	int	curr;
 	int	len;
-	printf("repeated init\n");
 
 	i = 0;
 	while (argv[i] != NULL)
 	{
-		curr =  i++;
+		curr = i++;
 		len = ft_strlen(argv[curr]);
-		printf("gonna check %s\n", argv[curr]);
 		while (argv[i + 1] != NULL)
 		{
-			printf("check %s against %s\n", argv[curr], argv[i]);
 			if (ft_strncmp(argv[curr], argv[i], len + 1) == 0)
 			{
-				printf("repeated args: %s and %s\n", argv[curr], argv[i]);
 				return (false);
 			}
 			i++;
-			printf("i %d\n", i);
 		}
 		i = curr;
-		printf("end i: %d\n", i);
 	}
-	printf("no repeated args\n");
 	return (true);
 }
 
@@ -77,7 +70,6 @@ t_bool	check_args(int argc, char *argv[])
 	i = 0;
 	while (argv[i] != NULL)
 	{
-		printf("checking: %s\n", argv[i]);
 		if (check_str(argv[i], 0) == false || check_repeated(argv, argc) == false)
 			return (false);
 		i++;
