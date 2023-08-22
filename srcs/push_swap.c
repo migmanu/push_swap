@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:26 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/22 18:40:04 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 19:29:25 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (argc == 2)
 	{
-		printf("only one arg passed\n");
 		vec = ft_split(argv[1], ' ');
 		if (!vec)
 			return (0);
@@ -35,7 +34,8 @@ int	main(int argc, char *argv[])
 	if (check_args(argc, vec) == false)
 		return(write(1, "Error\n", 6));
 	stk_a = create_stack(argc, vec);
-	tst_print_stack(&stk_a);
+	tst_print_stack(stk_a);
+	check_repeated(stk_a);
 	// free whole vector
 	//stk_a = create_stack(argc, argv);
 	return (0);

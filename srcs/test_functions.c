@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 22:06:39 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:20:31 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 19:06:45 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	tst_add_node_end(t_stack **stack, t_stack *new)
 }
 
 // Prints nbr field of each node, starting from root
-void	tst_print_stack(t_stack **root)
+void	tst_print_stack(t_stack *root)
 {
 	t_stack	*curr;
 
-	curr = *root;
+	curr = root;
 	while (curr != NULL)
 	{
 		printf("node %ld\n", curr->nbr);

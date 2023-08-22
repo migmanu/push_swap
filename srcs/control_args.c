@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_args.c                                      :+:      :+:    :+:   */
+/*   control_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 18:44:48 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 19:17:41 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,29 @@ t_bool	check_args(int argc, char *argv[])
 	return (true);
 }
 
-t_bool	check_repeated(t_stack *stk, int argc)
+t_bool	check_repeated(t_stack *stk)
 {
+	t_stack	*curr;
+	t_stack	*compare;
+	long	curr_nbr;
+
+	curr = stk;
+	while (curr->next != NULL)
+	{
+		curr_nbr = curr->nbr;
+		compare = curr->next;
+		while (compare != NULL)
+		{
+			if (curr->nbr == compare->nbr)
+			{
+				return(write(1, "Error\n", 6));
+				exit(0);
+			}
+			compare = compare->next;
+		}
+		curr = curr->next;
+	}
+	return (true);
 }
 /*
 int	main(void)
@@ -69,5 +90,10 @@ int	main(void)
 	//printf("%d\n", ft_strncmp(str1, str2, len + 1));
 	printf("%d\n", check_args(3, args));
 	//printf("str %d", check_str(""));
+
+	t_stack *stk = tst_make_stack(5);
+	stk->nbr = 2;
+	tst_print_stack(stk);
+	check_repeated(stk);
 	return (0);
 }*/
