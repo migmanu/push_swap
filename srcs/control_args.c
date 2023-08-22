@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 18:42:15 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 18:44:48 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,6 @@ t_bool	check_str(char *str, int toggle)
 	return (true);
 }
 
-t_bool	check_repeated(char *argv[], int argc)
-{
-	int	i;
-	int	curr;
-	int	len;
-
-	i = 0;
-	while (argv[i] != NULL)
-	{
-		curr = i++;
-		len = ft_strlen(argv[curr]);
-		while (argv[i + 1] != NULL)
-		{
-			if (ft_strncmp(argv[curr], argv[i], len + 1) == 0)
-			{
-				return (false);
-			}
-			i++;
-		}
-		i = curr;
-	}
-	return (true);
-}
-
 t_bool	check_args(int argc, char *argv[])
 {
 	int	i;
@@ -75,6 +51,10 @@ t_bool	check_args(int argc, char *argv[])
 		i++;
 	}
 	return (true);
+}
+
+t_bool	check_repeated(t_stack *stk, int argc)
+{
 }
 /*
 int	main(void)
