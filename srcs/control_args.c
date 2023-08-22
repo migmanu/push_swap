@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 19:17:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 22:30:17 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ t_bool	check_repeated(t_stack *stk)
 	while (curr->next != NULL)
 	{
 		curr_nbr = curr->nbr;
+		if (curr_nbr < INT_MIN || curr_nbr > INT_MAX)
+		{
+				return(write(1, "Error\n", 6));
+				exit(0);
+		}
 		compare = curr->next;
 		while (compare != NULL)
 		{
@@ -92,7 +97,7 @@ int	main(void)
 	//printf("str %d", check_str(""));
 
 	t_stack *stk = tst_make_stack(5);
-	stk->nbr = 2;
+	stk->nbr = INT_MAX;
 	tst_print_stack(stk);
 	check_repeated(stk);
 	return (0);

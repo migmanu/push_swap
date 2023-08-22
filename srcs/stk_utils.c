@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:25:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 22:54:22 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,30 @@ t_bool	stk_add_end(t_stack **stk, t_stack *new_node)
 		}
 	}
 	return (false);
+}
+
+t_stack	*stk_get_min(t_stack *stk)
+{
+	t_stack	*min;
+
+	min = stk;
+	while (stk != NULL)
+	{
+		if (stk->nbr < min->nbr)
+			min = stk;
+		stk = stk->next;
+	}
+	return (min);
+}
+
+int	main (void)
+{
+	t_stack	*stk_a;
+	t_stack	*stk_b;
+	t_stack	*min;
+	stk_a = tst_make_stack(5);
+	tst_print_stack(stk_a);
+	min = stk_get_min(stk_a);
+	printf("min: %ld\n", min->nbr);
+	return (0);
 }

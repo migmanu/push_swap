@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/22 19:13:42 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 22:26:06 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "../libft/libft.h"
 
 typedef struct s_stack
