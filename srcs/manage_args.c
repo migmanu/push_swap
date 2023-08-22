@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:30:46 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 18:42:15 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_bool	check_args(int argc, char *argv[])
 	i = 0;
 	while (argv[i] != NULL)
 	{
-		if (check_str(argv[i], 0) == false || check_repeated(argv, argc) == false)
+		if (check_str(argv[i], 0) == false)
 			return (false);
 		i++;
 	}
