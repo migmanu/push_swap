@@ -6,13 +6,13 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:40:27 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/07 16:41:45 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 20:05:47 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_sa(t_stack **stk_a)
+void	do_sa(t_stack **stk_a, int toggle)
 {
 	t_stack	*second_node;
 
@@ -25,10 +25,11 @@ void	do_sa(t_stack **stk_a)
 	*stk_a = (*stk_a)->next;
 	second_node->next = (*stk_a)->next;
 	(*stk_a)->next = second_node;
-	write(1, "sa\n", 3);
+	if (toggle == 1)
+		write(1, "sa\n", 3);
 }
 
-void	do_sb(t_stack **stk_b)
+void	do_sb(t_stack **stk_b, int toggle)
 {
 	t_stack	*second_node;
 
@@ -38,13 +39,14 @@ void	do_sb(t_stack **stk_b)
 	*stk_b = (*stk_b)->next;
 	second_node->next = (*stk_b)->next;
 	(*stk_b)->next = second_node;
-	write(1, "sb\n", 3);
+	if (toggle == 1)
+		write(1, "sb\n", 3);
 }
 
 void	do_ss(t_stack **stk_a, t_stack **stk_b)
 {
-	do_sa(stk_a);
-	do_sb(stk_b);
+	do_sa(stk_a, 0);
+	do_sb(stk_b, 0);
 }
 /*
 int	main (void)

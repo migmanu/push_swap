@@ -6,13 +6,13 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:19:16 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/07 16:38:51 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 20:02:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_pa(t_stack **stk_a, t_stack **stk_b)
+void	do_pa(t_stack **stk_a, t_stack **stk_b, int toggle)
 {
 	t_stack	*buf;
 
@@ -22,10 +22,11 @@ void	do_pa(t_stack **stk_a, t_stack **stk_b)
 	*stk_b = (*stk_b)->next;
 	buf->next = *stk_a;
 	*stk_a = buf;
-	write(1, "pa\n", 3);
+	if (toggle == 1)
+		write(1, "pa\n", 3);
 }
 
-void	do_pb(t_stack **stk_a, t_stack **stk_b)
+void	do_pb(t_stack **stk_a, t_stack **stk_b, int toggle)
 {
 	t_stack	*buf;
 
@@ -35,7 +36,8 @@ void	do_pb(t_stack **stk_a, t_stack **stk_b)
 	*stk_a = (*stk_a)->next;
 	buf->next = *stk_b;
 	*stk_b = buf;
-	write(1, "pb\n", 3);
+	if (toggle == 1)
+		write(1, "pb\n", 3);
 }
 /*
 int	main (void)
