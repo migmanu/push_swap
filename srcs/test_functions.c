@@ -6,11 +6,12 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 22:06:39 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 19:06:45 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 23:13:52 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <time.h>
 
 // Creates one node and adds it to the end of list
 void	tst_add_node_end(t_stack **stack, t_stack *new)
@@ -47,7 +48,7 @@ void	tst_print_stack(t_stack *root)
 }
 
 // Creates a stack of n_nodes size, adding each new node to the end
-t_stack	*tst_make_stack(int n_nodes)
+t_stack	*tst_make_stack(int n_nodes, int max, int random)
 {
 	t_stack	*root;
 	t_stack	*new_node;
@@ -60,7 +61,10 @@ t_stack	*tst_make_stack(int n_nodes)
 	while (i < n_nodes)
 	{
 		new_node = malloc(sizeof(t_stack));
-		new_node->nbr = i;
+		if (random == 0)
+			new_node->nbr = i;
+		else
+			new_node->nbr = (rand() % max) + 1;
 		new_node->next = NULL;
 		tst_add_node_end(&root, new_node);
 		i++;
