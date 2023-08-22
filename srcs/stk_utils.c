@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 23:10:27 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 23:12:17 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	main (void)
 	t_stack	*stk_a;
 	t_stack	*stk_b;
 	t_stack	*min;
+	srand( time(NULL) );
 	stk_a = tst_make_stack(5, 100, 1);
 	tst_print_stack(stk_a);
 	min = stk_get_min(stk_a);
