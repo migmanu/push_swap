@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/08 16:11:27 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:35:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	do_ra(t_stack **stk_a, int toggle)
 		return ;
 	buf = *stk_a;
 	*stk_a = (*stk_a)->next;
-	last = ft_lstlast(buf);
+	last = stk_get_last(buf);
 	buf->next = NULL;
 	last->next = buf;
 	if (toggle == 1)
@@ -37,7 +37,7 @@ void	do_rb(t_stack **stk_b, int toggle)
 		return ;
 	buf = *stk_b;
 	*stk_b = (*stk_b)->next;
-	last = ft_lstlast(buf);
+	last = stk_get_last(buf);
 	buf->next = NULL;
 	last->next = buf;
 	if (toggle == 1)

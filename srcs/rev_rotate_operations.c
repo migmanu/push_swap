@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:42:36 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:28:34 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/22 18:34:58 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	do_rra(t_stack **stk_a, int toggle)
 
 	if (!*stk_a || !(*stk_a)->next)
 		return ;
-	last = ft_lstlast(*stk_a);
+	last = stk_get_last(*stk_a);
 	buf = *stk_a;
 	while (buf->next != last)
 		buf = buf->next;
@@ -37,7 +37,7 @@ void	do_rrb(t_stack **stk_a, int toggle)
 
 	if (!*stk_a || !(*stk_a)->next)
 		return ;
-	last = ft_lstlast(*stk_a);
+	last = stk_get_last(*stk_a);
 	buf = *stk_a;
 	while (buf->next != last)
 		buf = buf->next;

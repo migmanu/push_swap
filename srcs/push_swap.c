@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:26 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/18 15:44:20 by jmigoya-         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:34:13 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	stk_a;
+	t_stack	*stk_a;
 	char	**vec;
 
 	printf("at start: %s\n", argv[1]);
