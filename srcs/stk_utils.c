@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/23 18:29:52 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:35:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,33 @@ t_stack	*stk_get_min(t_stack *stk)
 	return (min);
 }
 
+t_stack	*stk_get_max(t_stack *stk)
+{
+	t_stack	*max;
+
+	max = stk;
+	while (stk != NULL)
+	{
+		if (stk->nbr > max->nbr)
+			max = stk;
+		stk = stk->next;
+	}
+	return (max);
+}
+/*
 int	main (void)
 {
 	t_stack	*stk_a;
 	t_stack	*stk_b;
 	t_stack	*min;
+	t_stack	*max;
+
 	srand( time(NULL) );
 	stk_a = tst_make_stack(5, 100, 1);
 	tst_print_stack(stk_a);
 	min = stk_get_min(stk_a);
+	max = stk_get_max(stk_a);
 	printf("\nmin: %ld\n", min->nbr);
+	printf("max: %ld\n", max->nbr);
 	return (0);
-}
+}*/
