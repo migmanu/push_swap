@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 22:06:39 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 23:13:52 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:28:41 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,22 @@ void	tst_print_stack(t_stack *root)
 	curr = root;
 	while (curr != NULL)
 	{
-		printf("node %ld\n", curr->nbr);
+		printf("nbr: %ld\n", curr->nbr);
 		curr = curr->next;
 	}
+}
+
+t_bool	nbr_in_stk(long nbr, t_stack *stk)
+{
+	while (stk != NULL)
+	{
+		if (stk->nbr == nbr)
+		{
+			return (true);
+		}
+		stk = stk->next;
+	}
+	return (false);
 }
 
 // Creates a stack of n_nodes size, adding each new node to the end
@@ -55,8 +68,11 @@ t_stack	*tst_make_stack(int n_nodes, int max, int random)
 	long	i;
 
 	root = NULL;
-	if (n_nodes < 0)
-		return (NULL);
+	if (n_nodes < 0 || n_nodes > max)
+	{
+		write(1, "args err\n", 10);
+		exit(0);
+	}
 	i = 0;
 	while (i < n_nodes)
 	{
@@ -65,6 +81,8 @@ t_stack	*tst_make_stack(int n_nodes, int max, int random)
 			new_node->nbr = i;
 		else
 			new_node->nbr = (rand() % max) + 1;
+			while (nbr_in_stk(new_node->nbr, root) == true)
+				new_node->nbr = (rand() % max) + 1;
 		new_node->next = NULL;
 		tst_add_node_end(&root, new_node);
 		i++;
