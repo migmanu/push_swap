@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/22 23:12:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:42:43 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	do_pb(t_stack **stk_a, t_stack **stk_b);
 
 t_bool	check_str(char *str, int toggle);
 t_bool	check_args(int argc, char *argv[]);
-t_bool	check_repeated(t_stack *stk);
+void	check_numbers(t_stack *stk);
 
 void	tst_add_node_end(t_stack **stack, t_stack *new);
 t_stack	*tst_make_stack(int n_nodes, int max, int rand);
