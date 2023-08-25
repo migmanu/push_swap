@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:32:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/25 16:08:59 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/25 17:09:16 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(void)
 	t_stack	*stk;
 	t_stack	*previous;
 	t_stack	*node;
+
 	node->next = NULL;
 	node->nbr = 60;
 	stk = tst_make_stack(5, 76, 1);
