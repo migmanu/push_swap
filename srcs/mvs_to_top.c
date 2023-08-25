@@ -6,52 +6,68 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:16:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/24 00:18:02 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/25 12:13:57 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate(t_stack **stk)
+t_stack	*rotate(t_stack *stk)
 {
 	t_stack	*last;
 	t_stack	*buf;
 
-	if (!*stk || !(*stk)->next)
-		return (-1);
-	buf = *stk;
-	*stk = (*stk)->next;
+	if (!stk || !stk->next)
+		return (NULL);
+	buf = stk;
+	stk = stk->next;
 	last = stk_get_last(buf);
 	buf->next = NULL;
 	last->next = buf;
-	return (1);
+	return (stk);
 }
 
-void	rot_to_top(t_stack *stk, t_stack *node)
+t_stack	*rev_rotate(t_stack *stk)
 {
-	t_stack	*curr;
+	t_stack	*last;
+	t_stack	*buf;
+
+	if (!stk || !stk->next)
+		return (NULL);
+	last = stk_get_last(stk);
+	buf = stk;
+	while (buf->next != last)
+		buf = buf->next;
+	buf->next = NULL;
+	last->next = stk;
+	stk = last;
+	return (stk);
+}
+
+void	rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node)
+{
+	t_stack	*first;
 	int	result;
 
 	printf("rot init first: %ld node: %ld\n", stk->nbr, node->nbr);
-	curr = stk;
+	first = stk;
 	result = 0;
-	while (curr && curr->nbr != node->nbr)
+	while (first && (first->nbr != node->nbr))
 	{
-		curr = curr->next;
-		rotate(&stk);
+		first = f(first);
 		result += 1;
 	}
 	printf("result: %d\n", result);
-	tst_print_stack(stk);
+	tst_print_stack(first);
 }
 
 int	main(void)
 {
 	t_stack	*stk;
 
-	stk = tst_make_stack(5, 99, 1);
+	stk = tst_make_stack(5, 98, 1);
 	tst_print_stack(stk);
 	t_stack *min = stk_get_min(stk);
-	rot_to_top(stk, min);
+	rot_to_top(rotate, stk, min);
 	return (0);
 }
