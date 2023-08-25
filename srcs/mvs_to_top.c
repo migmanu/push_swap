@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:16:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/25 12:15:47 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/25 18:05:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node)
 		result += 1;
 	}
 	printf("result: %d\n", result);
-	tst_print_stack(first);
+	//tst_print_stack(first);
 	return (result);
 }
-
+/*
 int	main(void)
 {
 	t_stack	*stk;
@@ -71,4 +71,4 @@ int	main(void)
 	t_stack *min = stk_get_min(stk);
 	rot_to_top(rotate, stk, min);
 	return (0);
-}
+}*/

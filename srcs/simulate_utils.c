@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:32:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/25 17:09:16 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/25 18:04:42 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_stack	*get_previous(t_stack *stk, t_stack *node)
 	}
 	return (previous);
 }
-
+/*
 int	main(void)
 {
 	t_stack	*stk;
@@ -49,4 +49,4 @@ int	main(void)
 	previous = get_previous(stk, node);
 	printf("\n\n%ld\n", previous->nbr);
 	return (0);
-}
+}*/
