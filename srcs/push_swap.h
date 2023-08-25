@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/23 23:54:54 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:54:43 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		vec_size(const char *s, char c);
 t_stack	*stk_get_last(t_stack *stk);
 t_bool	stk_add_end(t_stack **stk, t_stack *new_node);
 t_stack	*stk_get_min(t_stack *stk);
+t_stack	*stk_get_max(t_stack *stk);
 
 t_stack	*create_stack(int argc, char **vec);
 void	tst_print_stack(t_stack *root);
