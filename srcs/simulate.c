@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:15:50 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/25 18:32:36 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/08/27 17:21:07 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,14 @@ int	find_cost(t_stack *stk_a, t_stack *stk_b, t_stack *node, t_stack *prev)
 	int	rev_rotation;
 
 	rotation = rot_to_top(rotate, stk_a, node);
+	printf("rotation:%d\n", rotation);
 	if (rot_to_top(rotate, stk_b, prev) > rotation)
-		rotation = rot_to_top(rotate, stk_b, prev);
+	{
+		printf("bigger than\n");
+		tst_print_stack(stk_b);
+		//rotation = rot_to_top(rotate, stk_b, prev);
+	}
+	printf("rev rotation\n");
 	rev_rotation = rot_to_top(rev_rotate, stk_a, node);
 	if (rot_to_top(rev_rotate, stk_b, prev) > rev_rotation)
 		rev_rotation = rot_to_top(rev_rotate, stk_b, prev);
