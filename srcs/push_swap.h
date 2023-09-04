@@ -47,6 +47,7 @@ void	check_numbers(t_stack *stk);
 
 void	tst_add_node_end(t_stack **stack, t_stack *new);
 t_stack	*tst_make_stack(int n_nodes, int max, int rand);
+t_stack	*tst_make_arr_stk(int *arr, int n);
 
 int		vec_size(const char *s, char c);
 
