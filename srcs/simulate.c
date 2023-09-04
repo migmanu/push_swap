@@ -42,14 +42,13 @@ int	get_rev_rot_cost(t_stack *stk, t_stack *node)
 	return (result);
 }
 
-int	get_sync_cost(t_stack *stk_a, t_stack *stk_b, t_stack *node)
+int	get_sync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 {
 	int		rot_cost;
 	int		rev_rot_cost;
-	t_stack *prev;
+	t_stack	*prev;
 
 	prev = get_previous(stk_b, node);
-	printf("\nSYNC: node is %ld, prev is %ld\n",node->nbr, prev->nbr);
 	if (get_rot_cost(stk_a, node) > get_rot_cost(stk_b, prev))
 		rot_cost = get_rot_cost(stk_a, node);
 	else
@@ -60,22 +59,18 @@ int	get_sync_cost(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 		rev_rot_cost = get_rev_rot_cost(stk_b, prev);
 	if (rot_cost < rev_rot_cost)
 	{
-		printf("result rot: %d", rot_cost);
 		return (rot_cost);
 	}
-	printf("result rev rot: %d", rev_rot_cost);
 	return (rev_rot_cost);
 }
 
-int	get_unsync_cost(t_stack *stk_a, t_stack *stk_b, t_stack *node)
+int	get_unsync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 {
-
 	int		node_cost;
 	int		prev_cost;
-	t_stack *prev;
+	t_stack	*prev;
 
 	prev = get_previous(stk_b, node);
-	printf("\nUNSYNC: node is %ld, prev is %ld\n",node->nbr, prev->nbr);
 	if (get_rot_cost(stk_a, node) < get_rev_rot_cost(stk_a, node))
 		node_cost = get_rot_cost(stk_a, node);
 	else
@@ -84,48 +79,35 @@ int	get_unsync_cost(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 		prev_cost = get_rot_cost(stk_b, prev);
 	else
 		prev_cost = get_rev_rot_cost(stk_b, prev);
-	printf("result unsync: %d\n", (node_cost + prev_cost));
 	return (node_cost + prev_cost);
 }
 
 t_stack	*find_cheapest(t_stack *stk_a, t_stack *stk_b)
 {
-	t_stack *cheapest;
-	t_stack *curr;
-	int		sync_cost;
-	int		unsync_cost;
+	t_stack	*cheapest;
+	t_stack	*cur;
 	int		cost;
 
 	cost = INT_MAX;
-	curr = stk_a;
-	while (curr)
+	cur = stk_a;
+	while (cur)
 	{
-		sync_cost = get_sync_cost(stk_a, stk_b, curr);
-		unsync_cost = get_unsync_cost(stk_a, stk_b, curr);
-		if (sync_cost <  unsync_cost)
+		if (get_sync_cst(stk_a, stk_b, cur) < cost)
 		{
-			if (sync_cost < cost)
-			{
-				printf("sync cost (%d) lower, node %ld\n", sync_cost, curr->nbr);
-				cost = sync_cost;
-				cheapest = curr;
-			}
+			cost = get_sync_cst(stk_a, stk_b, cur);
+			cheapest = cur;
 		}
-		else
+		if (get_unsync_cst(stk_a, stk_b, cur) < cost)
 		{
-			if (unsync_cost < cost)
-			{
-				printf("unsync cost (%d) lower, node %ld\n", unsync_cost, curr->nbr);
-				cost = unsync_cost;
-				cheapest = curr;
-			}
+			cost = get_unsync_cst(stk_a, stk_b, cur);
+			cheapest = cur;
 		}
-		curr = curr->next;
+		cur = cur->next;
 	}
 	printf("cheapest node is %ld\n", cheapest->nbr);
 	return (cheapest);
 }
-
+/*
 int	main(void)
 {
 	t_stack	*stk_a;
@@ -155,4 +137,4 @@ int	main(void)
 	//cheapest = find_cheapest(stk_a, stk_b);
 	//printf("\n cheapest nbr:%ld", cheapest->nbr);
 	return (0);
-}
+}*/
