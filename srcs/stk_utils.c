@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/23 18:35:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:01:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,20 @@ t_stack	*stk_get_max(t_stack *stk)
 		stk = stk->next;
 	}
 	return (max);
+}
+
+// Simple function that counts nodes in stack
+int	stk_cnt_nds(t_stack *stk)
+{
+	t_stack	*cur;
+	int		result;
+
+	while (cur)
+	{
+		result++;
+		cur = cur->next;
+	}
+	return (result);
 }
 /*
 int	main (void)

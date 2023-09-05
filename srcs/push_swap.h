@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/05 18:56:03 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:03:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,22 @@ t_bool	check_args(int argc, char *argv[]);
 void	check_numbers(t_stack *stk);
 
 void	tst_add_node_end(t_stack **stack, t_stack *new);
+void	tst_print_stack(t_stack *root);
 t_stack	*tst_make_stack(int n_nodes, int max, int rand);
 t_stack	*tst_make_arr_stk(int *arr, int n);
 
 int		vec_size(const char *s, char c);
 
-t_stack	*stk_get_last(t_stack *stk);
 t_bool	stk_add_end(t_stack **stk, t_stack *new_node);
+t_stack	*stk_get_last(t_stack *stk);
 t_stack	*stk_get_min(t_stack *stk);
 t_stack	*stk_get_max(t_stack *stk);
+int		stk_cnt_nds(t_stack *stk);
 
 t_stack	*create_stack(int argc, char **vec);
-void	tst_print_stack(t_stack *root);
-
 t_stack	*rotate(t_stack *stk);
 t_stack	*rev_rotate(t_stack *stk);
-int		rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node);
-
 t_stack	*get_previous(t_stack *stk, t_stack *node);
+int		rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node);
 
 #endif
