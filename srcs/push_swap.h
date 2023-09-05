@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/25 18:03:16 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 18:56:03 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,9 @@ t_stack	*stk_get_max(t_stack *stk);
 t_stack	*create_stack(int argc, char **vec);
 void	tst_print_stack(t_stack *root);
 
-
 t_stack	*rotate(t_stack *stk);
 t_stack	*rev_rotate(t_stack *stk);
-int	rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node);
-
+int		rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node);
 
 t_stack	*get_previous(t_stack *stk, t_stack *node);
 
