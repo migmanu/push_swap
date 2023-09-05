@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:16:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/27 17:24:54 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:27:39 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*rev_rotate(t_stack *stk)
 int	rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node)
 {
 	t_stack	*first;
-	int	result;
+	int		result;
 
 	printf("rot init first: %ld node: %ld\n", stk->nbr, node->nbr);
 	first = stk;
