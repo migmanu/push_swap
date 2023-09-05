@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/05 19:03:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:18:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ void	do_sb(t_stack **stk_b);
 void	do_ss(t_stack **stk_a, t_stack **stk_b);
 void	do_pa(t_stack **stk_a, t_stack **stk_b);
 void	do_pb(t_stack **stk_a, t_stack **stk_b);
+void	do_ra(t_stack **stk_a, int toggle);
+void	do_rb(t_stack **stk_b, int toggle);
+void	do_rr(t_stack **stk_a, t_stack **stk_b, int toggle);
+void	do_rra(t_stack **stk_a, int toggle);
+void	do_rrb(t_stack **stk_a, int toggle);
+void	do_rrr(t_stack **stk_a, t_stack **stk_b, int toggle);
 
 t_bool	check_str(char *str, int toggle);
 t_bool	check_args(int argc, char *argv[]);
