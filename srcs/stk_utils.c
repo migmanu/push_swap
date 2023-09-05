@@ -6,12 +6,13 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/05 19:01:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:29:19 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Get pointer to last node of any given stack
 t_stack	*stk_get_last(t_stack *stk)
 {
 	if (!stk)
@@ -21,6 +22,7 @@ t_stack	*stk_get_last(t_stack *stk)
 	return (stk);
 }
 
+// Add note at end of any given stack
 t_bool	stk_add_end(t_stack **stk, t_stack *new_node)
 {
 	t_stack	*curr;
@@ -44,6 +46,7 @@ t_bool	stk_add_end(t_stack **stk, t_stack *new_node)
 	return (false);
 }
 
+// Get pointer to the node with the smalles nbr in any given stack
 t_stack	*stk_get_min(t_stack *stk)
 {
 	t_stack	*min;
@@ -58,6 +61,7 @@ t_stack	*stk_get_min(t_stack *stk)
 	return (min);
 }
 
+// Get pointer to the node with the largest nbr in any given stack
 t_stack	*stk_get_max(t_stack *stk)
 {
 	t_stack	*max;
