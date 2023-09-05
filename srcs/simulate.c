@@ -6,12 +6,14 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:15:50 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/03 20:23:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:24:27 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Get the amount of movements needed in order to rotate any given node
+// to the top of any given stack.
 int	get_rot_cost(t_stack *stk, t_stack *node)
 {
 	int	result;
@@ -25,6 +27,8 @@ int	get_rot_cost(t_stack *stk, t_stack *node)
 	return (result);
 }
 
+// Get the amount of movements needed in order to reverse rotate any given
+// node to the top of any given stack.
 int	get_rev_rot_cost(t_stack *stk, t_stack *node)
 {
 	int	result;
@@ -42,6 +46,9 @@ int	get_rev_rot_cost(t_stack *stk, t_stack *node)
 	return (result);
 }
 
+// Get the amount of movements needed to get a node from stk_a and its
+// corresponding previous node from stk_b both into top position,
+// using either rr or rrr.
 int	get_sync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 {
 	int		rot_cost;
@@ -64,6 +71,9 @@ int	get_sync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 	return (rev_rot_cost);
 }
 
+// Get the amount of movements needed to get a node from stk_a and its
+// corresponding previous node from stk_b both into top position,
+// using either ra and rra for stk_a and either rb and rrb for stk_b
 int	get_unsync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 {
 	int		node_cost;
@@ -82,6 +92,8 @@ int	get_unsync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node)
 	return (node_cost + prev_cost);
 }
 
+// Find the node from stk_a that would require the least amount of movements
+// in order to be pushed into its right position in stk_b
 t_stack	*find_cheapest(t_stack *stk_a, t_stack *stk_b)
 {
 	t_stack	*cheapest;
