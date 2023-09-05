@@ -6,12 +6,14 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 18:59:44 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:27:50 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:07:49 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Creates a stack (linked list) from the inputed
+// array of array of numbers
 t_stack	*create_stack(int argc, char **vec)
 {
 	t_stack	*stk_a;
