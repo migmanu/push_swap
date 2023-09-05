@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/05 19:18:12 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:26:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,16 @@ t_stack	*stk_get_max(t_stack *stk);
 int		stk_cnt_nds(t_stack *stk);
 
 t_stack	*create_stack(int argc, char **vec);
+
 t_stack	*rotate(t_stack *stk);
 t_stack	*rev_rotate(t_stack *stk);
 t_stack	*get_previous(t_stack *stk, t_stack *node);
 int		rot_to_top(t_stack *(*f) (t_stack *), t_stack *stk, t_stack *node);
+
+t_stack	*find_cheapest(t_stack *stk_a, t_stack *stk_b);
+int		get_unsync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node);
+int		get_sync_cst(t_stack *stk_a, t_stack *stk_b, t_stack *node);
+int		get_rev_rot_cost(t_stack *stk, t_stack *node);
+int		get_rot_cost(t_stack *stk, t_stack *node);
 
 #endif
