@@ -6,11 +6,10 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/23 18:42:37 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:06:36 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// File for storing input related functions: check valid, convert to int.
 #include "push_swap.h"
 
 // Basic function that check all chars are numbers. Toggle determines 
@@ -39,6 +38,7 @@ t_bool	check_str(char *str, int toggle)
 	return (true);
 }
 
+// Applies the check_str to each node
 t_bool	check_args(int argc, char *argv[])
 {
 	int	i;
@@ -53,7 +53,7 @@ t_bool	check_args(int argc, char *argv[])
 	return (true);
 }
 
-// Goes though the linked list and checks for invalid numbers.
+// Goes through the linked list and checks for invalid numbers.
 // Kills program if invalid
 void	check_numbers(t_stack *stk)
 {
