@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:37:37 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/05 19:29:19 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/06 19:10:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	stk_cnt_nds(t_stack *stk)
 	t_stack	*cur;
 	int		result;
 
+	cur = stk;
 	while (cur)
 	{
 		result++;
