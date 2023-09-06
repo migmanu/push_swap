@@ -6,7 +6,7 @@
 #    By: jmigoya- <jmigoya-@student.42berlin.d      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 17:23:11 by jmigoya-          #+#    #+#              #
-#    Updated: 2023/08/08 16:18:16 by jmigoya-         ###   ########.fr        #
+#    Updated: 2023/09/06 19:09:46 by migmanu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap
@@ -15,9 +15,10 @@ CFLAGS = -Werror -Wall -Wextra
 HEADER = ./srcs/push_swap.h
 LIBFT = ./libft
 
-FILES = push_swap.c lst_utils.c rev_rotate_operations.c \
-		swap_operations.c push_operations.c push_swap.c \
-		rotate_operations.c test_functions.c
+FILES = push_swap.c stk_utils.c rev_rotate_operations.c \
+		swap_operations.c push_operations.c rotate_operations.c \
+		test_functions.c control_args.c create_stack.c simulate.c\
+		simulate_utils.c
 FILES_PATH = ./srcs/
 
 SRCS = $(addprefix $(FILES_PATH), $(FILES))
