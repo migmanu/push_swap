@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:23:16 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/06 19:32:29 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/06 20:24:20 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ t_bool	free_stk(t_stack *stk)
 	return (true);
 }
 
+/*
 int	main(void)
 {
 	t_stack	*stk;
 	stk = tst_make_stack(40, 122, 1);
 	free_stk(stk);
 	return (0);
-}
+}*/
