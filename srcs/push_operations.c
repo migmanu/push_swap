@@ -6,50 +6,48 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:19:16 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/22 20:02:35 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/07 22:43:33 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_pa(t_stack **stk_a, t_stack **stk_b, int toggle)
+// Push first node from stack src to first position in
+// stack dest
+void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*buf;
 
-	if (!*stk_a || !*stk_b)
+	if (!*src || !*dest)
 		return ;
-	buf = *stk_b;
-	*stk_b = (*stk_b)->next;
-	buf->next = *stk_a;
-	*stk_a = buf;
-	if (toggle == 1)
-		write(1, "pa\n", 3);
+	buf = *src;
+	*src = (*src)->next;
+	buf->next = *dest;
+	*dest = buf;
 }
 
-void	do_pb(t_stack **stk_a, t_stack **stk_b, int toggle)
-{
-	t_stack	*buf;
-
-	if (!*stk_a || !*stk_b)
-		return ;
-	buf = *stk_a;
-	*stk_a = (*stk_a)->next;
-	buf->next = *stk_b;
-	*stk_b = buf;
-	if (toggle == 1)
-		write(1, "pb\n", 3);
-}
 /*
 int	main (void)
 {
 	t_stack	*stk_a;
 	t_stack	*stk_b;
-	stk_a = tst_make_stack(4);
-	stk_b = tst_make_stack(4);
-	do_pb(&stk_a, &stk_b);
+	stk_a = tst_make_stack(4, 43, 1);
+	stk_b = tst_make_stack(4, 54, 1);
 	printf("\nstack A\n");
-	tst_print_stack(&stk_a);
+	tst_print_stack(stk_a);
 	printf("\nstack B\n");
-	tst_print_stack(&stk_b);
+	tst_print_stack(stk_b);
+	printf("\npush to b\n");
+	push(&stk_a, &stk_b);
+	printf("\nstack A\n");
+	tst_print_stack(stk_a);
+	printf("\nstack B\n");
+	tst_print_stack(stk_b);
+	printf("\npush to a\n");
+	push(&stk_b, &stk_a);
+	printf("\nstack A\n");
+	tst_print_stack(stk_a);
+	printf("\nstack B\n");
+	tst_print_stack(stk_b);
 	return (0);
 }*/
