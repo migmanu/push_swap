@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/07 22:54:55 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/07 22:56:54 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	main(void)
 	tst_print_stack(stk_a);
 	tst_print_stack(stk_b);
 	run_push_swap(&stk_a, &stk_b);
-	printf("Altered stacks");
+	printf("nodes %d", stk_cnt_nds(stk_a));
+	/*printf("Altered stacks");
 	tst_print_stack(stk_a);
-	tst_print_stack(stk_b);
+	tst_print_stack(stk_b);*/
 	return (0);
 }
