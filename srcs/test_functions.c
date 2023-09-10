@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 22:06:39 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/06 19:30:39 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 18:47:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <time.h>
 
 // Creates one node and adds it to the end of list
-void	tst_add_node_end(t_stack **stack, t_stack *new)
+void	tst_add_node_end(t_stk **stack, t_stk *new)
 {
-	t_stack	*curr;
+	t_stk	*curr;
 
 	if (stack)
 	{
@@ -35,9 +35,9 @@ void	tst_add_node_end(t_stack **stack, t_stack *new)
 }
 
 // Prints nbr field of each node, starting from root
-void	tst_print_stack(t_stack *root)
+void	tst_print_stk(t_stk *root)
 {
-	t_stack	*curr;
+	t_stk	*curr;
 
 	curr = root;
 	while (curr != NULL)
@@ -47,7 +47,7 @@ void	tst_print_stack(t_stack *root)
 	}
 }
 
-t_bool	nbr_in_stk(long nbr, t_stack *stk)
+t_bool	nbr_in_stk(long nbr, t_stk *stk)
 {
 	while (stk != NULL)
 	{
@@ -62,17 +62,17 @@ t_bool	nbr_in_stk(long nbr, t_stack *stk)
 
 // creates a stack from an array of numbers, up to n nodes. n must not be larger
 // the amount of members of the provided array
-t_stack	*tst_make_arr_stk(int *arr, int n)
+t_stk	*tst_make_arr_stk(int *arr, int n)
 {
-	t_stack	*root;
-	t_stack	*new_node;
+	t_stk	*root;
+	t_stk	*new_node;
 	int 	i;
 
 	root = NULL;
 	i = 0;
 	while (i < n)
 	{
-		new_node = malloc(sizeof(t_stack));
+		new_node = malloc(sizeof(t_stk));
 		if (!new_node)
 			return (NULL);
 		new_node->nbr = arr[i];
@@ -84,10 +84,10 @@ t_stack	*tst_make_arr_stk(int *arr, int n)
 }
 
 // Creates a random stack of n_nodes size, adding each new node to the end
-t_stack	*tst_make_stack(int n_nodes, int max, int random)
+t_stk	*tst_make_stack(int n_nodes, int max, int random)
 {
-	t_stack	*root;
-	t_stack	*new_node;
+	t_stk	*root;
+	t_stk	*new_node;
 	long	i;
 
 	root = NULL;
@@ -99,7 +99,7 @@ t_stack	*tst_make_stack(int n_nodes, int max, int random)
 	i = 0;
 	while (i < n_nodes)
 	{
-		new_node = malloc(sizeof(t_stack));
+		new_node = malloc(sizeof(t_stk));
 		if (random == 0)
 			new_node->nbr = i;
 		else
@@ -118,9 +118,9 @@ t_stack	*tst_make_stack(int n_nodes, int max, int random)
 /*
 int	main(void)
 {
-	t_stack *root;
+	t_stk *root;
 	int		arr[] = {12, 4, 6, 76, 3};
 	root = tst_make_arr_stk(arr, 5);
-	tst_print_stack(root);
+	tst_print_stk(root);
 	return (0);
 }*/

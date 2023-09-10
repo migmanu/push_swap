@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/05 19:06:36 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 18:45:10 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ t_bool	check_args(int argc, char *argv[])
 
 // Goes through the linked list and checks for invalid numbers.
 // Kills program if invalid
-void	check_numbers(t_stack *stk)
+void	check_numbers(t_stk *stk)
 {
-	t_stack	*curr;
-	t_stack	*compare;
+	t_stk	*curr;
+	t_stk	*compare;
 	long	curr_nbr;
 
 	curr = stk;
@@ -97,9 +97,9 @@ int	main(void)
 	printf("%d\n", check_args(3, args));
 	//printf("str %d", check_str(""));
 
-	t_stack *stk = tst_make_stack(5);
+	t_stk *stk = tst_make_stack(5);
 	stk->nbr = INT_MAX;
-	tst_print_stack(stk);
+	tst_print_stk(stk);
 	check_repeated(stk);
 	return (0);
 }*/

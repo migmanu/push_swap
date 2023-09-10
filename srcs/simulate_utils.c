@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:32:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/08/25 18:04:42 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 18:46:57 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 // with those of the stack. It returns a link to the
 // node within the stack that has the closest lesser
 // nbr.
-t_stack	*get_previous(t_stack *stk, t_stack *node)
+t_stk	*get_previous(t_stk *stk, t_stk *node)
 {
-	t_stack	*curr;
-	t_stack	*previous;
+	t_stk	*curr;
+	t_stk	*previous;
 
 	if (node->nbr > (stk_get_max(stk))->nbr)
 		return (stk_get_max(stk));
@@ -38,14 +38,14 @@ t_stack	*get_previous(t_stack *stk, t_stack *node)
 /*
 int	main(void)
 {
-	t_stack	*stk;
-	t_stack	*previous;
-	t_stack	*node;
+	t_stk	*stk;
+	t_stk	*previous;
+	t_stk	*node;
 
 	node->next = NULL;
 	node->nbr = 60;
 	stk = tst_make_stack(5, 76, 1);
-	tst_print_stack(stk);
+	tst_print_stk(stk);
 	previous = get_previous(stk, node);
 	printf("\n\n%ld\n", previous->nbr);
 	return (0);

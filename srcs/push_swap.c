@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:26 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/08/23 18:45:20 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 18:45:54 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	*stk_a;
+	t_stk	*stk_a;
 	char	**vec;
 
 	if (argc == 1)
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 	if (check_args(argc, vec) == false)
 		return (write(1, "Error\n", 6));
 	stk_a = create_stack(argc, vec);
-	tst_print_stack(stk_a);
+	tst_print_stk(stk_a);
 	check_numbers(stk_a);
 	// free whole vector
 	//stk_a = create_stack(argc, argv);

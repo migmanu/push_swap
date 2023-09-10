@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:19:16 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/07 22:43:33 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 18:45:44 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 // Push first node from stack src to first position in
 // stack dest
-void	push(t_stack **src, t_stack **dest)
+void	push(t_stk **src, t_stk **dest)
 {
-	t_stack	*buf;
+	t_stk	*buf;
 
 	if (!*src || !*dest)
 		return ;
@@ -29,25 +29,25 @@ void	push(t_stack **src, t_stack **dest)
 /*
 int	main (void)
 {
-	t_stack	*stk_a;
-	t_stack	*stk_b;
+	t_stk	*stk_a;
+	t_stk	*stk_b;
 	stk_a = tst_make_stack(4, 43, 1);
 	stk_b = tst_make_stack(4, 54, 1);
 	printf("\nstack A\n");
-	tst_print_stack(stk_a);
+	tst_print_stk(stk_a);
 	printf("\nstack B\n");
-	tst_print_stack(stk_b);
+	tst_print_stk(stk_b);
 	printf("\npush to b\n");
 	push(&stk_a, &stk_b);
 	printf("\nstack A\n");
-	tst_print_stack(stk_a);
+	tst_print_stk(stk_a);
 	printf("\nstack B\n");
-	tst_print_stack(stk_b);
+	tst_print_stk(stk_b);
 	printf("\npush to a\n");
 	push(&stk_b, &stk_a);
 	printf("\nstack A\n");
-	tst_print_stack(stk_a);
+	tst_print_stk(stk_a);
 	printf("\nstack B\n");
-	tst_print_stack(stk_b);
+	tst_print_stk(stk_b);
 	return (0);
 }*/
