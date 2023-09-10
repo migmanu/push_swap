@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 20:43:52 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/11 01:12:37 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void push_to_stk_b(t_stk **stk_a, t_stk **stk_b)
 		unsync = get_unsync_cst(*stk_a, *stk_b, cheapest);
 		if (sync < unsync)
 		{
-
+			sync_to_top(stk_a, stk_b, cheapest);
 		}
 		else
 		{
