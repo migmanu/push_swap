@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/10 19:40:12 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 20:48:19 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int		get_rot_cost(t_stk *stk, t_stk *node);
 t_stk	*get_previous(t_stk *stk, t_stk *node);
 
 // sync_rotations.c
-t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
-void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
+t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev);
+void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev);
 void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node);
 
 #endif
