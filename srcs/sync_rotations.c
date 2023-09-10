@@ -6,30 +6,51 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:52:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 19:33:27 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 21:20:35 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
+// Executes sync_rotate as needed to position node and prev on top of
+// each of their stacks
+void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
 {
-
 	while (*stk_a != node && *stk_b != prev)
 	{
-		//rotate A
-		//rotate B
-		//write
+		sync_rotate(stk_a, stk_b);
+		write(1, "rr\n", 3);
 	}
-	while (stk_a != node)
+	while (*stk_a != node)
 	{
-		// rotate A
-		// write
+		rotate(stk_a);
+		write(1, "ra\n", 3);
 	}
-	while (stk_b != prev)
+	while (*stk_b != prev)
 	{
-		// rotate B
-		// write
+		rotate(stk_b);
+		write(1, "rb\n", 3);
+	}
+}
+
+// Executes sync_rev_rotate as needed to position node and prev on top of
+// each of their stacks
+void	do_sync_r_rot(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
+{
+	while (*stk_a != node && *stk_b != prev)
+	{
+		sync_rev_rotate(stk_a, stk_b);
+		write(1, "rrr\n", 4);
+	}
+	while (*stk_a != node)
+	{
+		rev_rotate(stk_a);
+		write(1, "rra\n", 4);
+	}
+	while (*stk_b != prev)
+	{
+		rev_rotate(stk_b);
+		write(1, "rrb\n", 4);
 	}
 }
 
@@ -57,14 +78,41 @@ void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
 {
 	t_stk	*prev;
 
-	prev = get_previous(stk_b, node);
+	prev = get_previous(*stk_b, node);
 	if (sync_r_or_rr(*stk_a, *stk_b, node, prev) == true)
 	{
-		sync_rotate(*stk_a, *stk_b, node, prev);
-		write(1, "rr\n", 3);
+		do_sync_rotate(stk_a, stk_b, node, prev);
 	}
 	else
 	{
-		// perform sync rev_rotation
+		do_sync_r_rotate(stk_a, stk_b, node, prev);
 	}
+}
+
+int	main(void)
+{
+	t_stk	*cheapest;
+	t_stk	*prev;
+	t_stk	*stk_a;
+	t_stk	*stk_b;
+	stk_a = tst_make_stack(5, 23, 1);
+	stk_b = tst_make_stack(1, 54, 1);
+	printf("stk A\n");
+	tst_print_stk(stk_a);
+	printf("stk B\n");
+	tst_print_stk(stk_b);
+	while (stk_cnt_nds(stk_a) > 3)
+	{
+		cheapest = find_cheapest(stk_a, stk_b);
+		prev = get_previous(stk_b, cheapest);
+		do_sync_rotate(&stk_a, &stk_b, cheapest, prev);
+		push(&stk_a, &stk_b);
+		write(1, "pb\n", 3);
+	}
+	printf("\nAFTER\n");
+	printf("stk A\n");
+	tst_print_stk(stk_a);
+	printf("stk B\n");
+	tst_print_stk(stk_b);
+	return (0);
 }
