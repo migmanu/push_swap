@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 18:46:31 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 18:52:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node)
 	}
 }
 
+// Depending on result of sync_r_or_rr calls for sync_rotate
+// or sync_rev_rotate
 void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
 {
 	t_stk	*prev;
