@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/10 20:48:19 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/10 20:49:48 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int		stk_cnt_nds(t_stk *stk);
 t_stk	*create_stack(int argc, char **vec);
 
 // rotation_operations.c
-t_stk	*rotate(t_stk *stk);
-t_stk	*rev_rotate(t_stk *stk);
+t_stk	*rotate(t_stk **stk);
+t_stk	*rev_rotate(t_stk **stk);
 t_bool	sync_rotate(t_stk **stk_a, t_stk **stk_b);
 t_bool	sync_rev_rotate(t_stk **stk_a, t_stk **stk_b);
 
