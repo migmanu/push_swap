@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:52:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 21:20:35 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/11 01:07:40 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 
 	rotation = get_rot_cost(stk_a, node);
 	rev_rotation = get_rev_rot_cost(stk_a, node);
-	if (get_rot_cost(stk_b, prev) < rotation)
+	if (get_rot_cost(stk_b, prev) > rotation)
 		rotation = get_rot_cost(stk_b, prev);
-	if (get_rev_rot_cost(stk_b, prev) < rev_rotation)
+	if (get_rev_rot_cost(stk_b, prev) > rev_rotation)
 		rev_rotation = get_rev_rot_cost(stk_b, prev);
 	if (rotation < rev_rotation)
 		return (true);
@@ -81,11 +81,13 @@ void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
 	prev = get_previous(*stk_b, node);
 	if (sync_r_or_rr(*stk_a, *stk_b, node, prev) == true)
 	{
+		printf("rotate\n");
 		do_sync_rotate(stk_a, stk_b, node, prev);
 	}
 	else
 	{
-		do_sync_r_rotate(stk_a, stk_b, node, prev);
+		printf("rev_rotate\n");
+		do_sync_r_rot(stk_a, stk_b, node, prev);
 	}
 }
 
@@ -105,7 +107,7 @@ int	main(void)
 	{
 		cheapest = find_cheapest(stk_a, stk_b);
 		prev = get_previous(stk_b, cheapest);
-		do_sync_rotate(&stk_a, &stk_b, cheapest, prev);
+		sync_to_top(&stk_a, &stk_b, cheapest);
 		push(&stk_a, &stk_b);
 		write(1, "pb\n", 3);
 	}
