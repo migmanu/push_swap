@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:26 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/10 18:45:54 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/11 18:15:47 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int	main(int argc, char *argv[])
 	tst_print_stk(stk_a);
 	check_numbers(stk_a);
 	// free whole vector
-	//stk_a = create_stack(argc, argv);
 	return (0);
 }
