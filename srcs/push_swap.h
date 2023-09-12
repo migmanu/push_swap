@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/11 18:20:48 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/12 20:13:52 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node);
 // run_push_swap.c
 t_stk	*push_two(t_stk **stk_a);
 t_bool	run_push_swap(t_stk **stk_a);
+
+// swap_operations.c
+void	swap(t_stk **stk);
 
 #endif
