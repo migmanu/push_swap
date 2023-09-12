@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:52:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/11 01:07:40 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/11 17:46:46 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
 		do_sync_r_rot(stk_a, stk_b, node, prev);
 	}
 }
-
+/*
 int	main(void)
 {
 	t_stk	*cheapest;
@@ -117,4 +117,4 @@ int	main(void)
 	printf("stk B\n");
 	tst_print_stk(stk_b);
 	return (0);
-}
+}*/
