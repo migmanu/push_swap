@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/12 14:56:56 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/12 21:29:01 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_bool	run_push_swap(t_stk **stk_a)
 		return (false);
 	stk_b = push_two(stk_a);
 	push_to_stk_b(stk_a, &stk_b);
+	solve_three(stk_a);
 	return (true);
 }
 
