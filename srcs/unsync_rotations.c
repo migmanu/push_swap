@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 01:13:41 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/12 14:30:31 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/12 20:21:08 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
 	t_stk	*prev;
 
 	prev = get_previous(*stk_b, node);
-	printf("stk a\n");
-	tst_print_stk(*stk_a);
-	printf("stk b\n");
-	tst_print_stk(*stk_b);
 	if (get_rot_cost(*stk_a, node) < get_rev_rot_cost(*stk_a, node))
 	{
 		printf("rotate a\n");
