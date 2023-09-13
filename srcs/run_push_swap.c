@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 22:43:21 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 22:54:53 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,13 @@ t_bool	run_push_swap(t_stk **stk_a)
 	solve_three(stk_a);
 	push_to_stk_a(stk_a, &stk_b);
 	order_stk_a(stk_a, stk_get_min(*stk_a));
+	printf("end resulting\n");
+	tst_print_stk(*stk_a);
 	free_stk(stk_b);
 	free_stk(*stk_a);
 	return (true);
 }
-
+/*
 int	main(void)
 {
 	t_stk	*stk_a;
@@ -107,4 +109,4 @@ int	main(void)
 	//stk_b = tst_make_stack(2, 53, 1);
 	run_push_swap(&stk_a);
 	return (0);
-}
+}*/
