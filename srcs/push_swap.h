@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/13 22:42:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 23:14:18 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef enum e_bool
 # define TRUE true
 
 // control_args.c
-t_bool	check_str(char *str, int toggle);
+t_bool	check_str(char *str);
 t_bool	check_args(int argc, char *argv[]);
 void	check_numbers(t_stk *stk);
 
