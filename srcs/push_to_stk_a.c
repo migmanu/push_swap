@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 21:28:20 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 19:48:53 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 19:56:45 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b)
 	}
 }
 
-
+/*
 int	main(void)
 {
 	t_stk	*stk_a;
@@ -88,4 +88,4 @@ int	main(void)
 	printf("B\n");
 	tst_print_stk(stk_b);
 	return (0);
-}
+}*/
