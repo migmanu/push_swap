@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:15:50 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 16:27:50 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:34:45 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	get_rev_rot_cost(t_stk *stk, t_stk *node)
 }
 
 // Get the amount of movements needed to get a node from stk_a and its
-// corresponding previous node from stk_b both into top position,
-// using either rr or rrr.
+// corresponding previous node from stk_b, or vice versa both into top 
+// position, using either rr or rrr.
 int	get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 {
 	int		rot_cost;

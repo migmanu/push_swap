@@ -6,12 +6,12 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:16:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 18:45:31 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:55:02 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 t_stk	*rotate(t_stk *stk)
 {
 	t_stk	*last;
@@ -62,7 +62,7 @@ int	rot_to_top(t_stk *(*f) (t_stk *), t_stk *stk, t_stk *node)
 	tst_print_stk(first);
 	return (result);
 }
-/*
+
 int	main(void)
 {
 	t_stk	*stk;

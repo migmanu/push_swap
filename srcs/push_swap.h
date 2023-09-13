@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/13 18:41:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:59:07 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ t_stk	*get_previous(t_stk *stk, t_stk *node);
 void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
 void	do_sync_r_rot(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
 t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *nd_a, t_stk *nd_b);
-void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a);
+void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
 
 // unsync_rotations.c
-void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node);
+void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
 
 // run_push_swap.c
 t_stk	*push_two(t_stk **stk_a);

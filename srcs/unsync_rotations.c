@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 01:13:41 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/12 20:21:08 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:59:24 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,30 @@
 
 // Router function used to chose and execute cheapest path for each
 // stack
-void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
+void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b)
 {
-	t_stk	*prev;
-
-	prev = get_previous(*stk_b, node);
-	if (get_rot_cost(*stk_a, node) < get_rev_rot_cost(*stk_a, node))
+	if (get_rot_cost(*stk_a, nd_a) < get_rev_rot_cost(*stk_a, nd_a))
 	{
 		printf("rotate a\n");
-		while (*stk_a != node)
+		while (*stk_a != nd_a)
 			rotate(stk_a);
 	}
 	else
 	{
 		printf("rev rotate a\n");
-		while (*stk_a != node)
+		while (*stk_a != nd_a)
 			rev_rotate(stk_a);
 	}
-	if (get_rot_cost(*stk_b, prev) < get_rev_rot_cost(*stk_b, prev))
+	if (get_rot_cost(*stk_b, nd_b) < get_rev_rot_cost(*stk_b, nd_b))
 	{
 		printf("rotate b\n");
-		while (*stk_b != prev)
+		while (*stk_b != nd_b)
 			rotate(stk_b);
 	}
 	else
 	{
 		printf("rev rotate b\n");
-		while (*stk_b != prev)
+		while (*stk_b != nd_b)
 			rev_rotate(stk_b);
 	}
 }

@@ -6,48 +6,48 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:52:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/11 17:46:46 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:52:01 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Executes sync_rotate as needed to position node and prev on top of
+// Executes sync_rotate as needed to position nd_a and nd_b on top of
 // each of their stacks
-void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
+void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b)
 {
-	while (*stk_a != node && *stk_b != prev)
+	while (*stk_a != nd_a && *stk_b != nd_b)
 	{
 		sync_rotate(stk_a, stk_b);
 		write(1, "rr\n", 3);
 	}
-	while (*stk_a != node)
+	while (*stk_a != nd_a)
 	{
 		rotate(stk_a);
 		write(1, "ra\n", 3);
 	}
-	while (*stk_b != prev)
+	while (*stk_b != nd_b)
 	{
 		rotate(stk_b);
 		write(1, "rb\n", 3);
 	}
 }
 
-// Executes sync_rev_rotate as needed to position node and prev on top of
+// Executes sync_rev_rotate as needed to position nd_a and nd_b on top of
 // each of their stacks
-void	do_sync_r_rot(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
+void	do_sync_r_rot(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b)
 {
-	while (*stk_a != node && *stk_b != prev)
+	while (*stk_a != nd_a && *stk_b != nd_b)
 	{
 		sync_rev_rotate(stk_a, stk_b);
 		write(1, "rrr\n", 4);
 	}
-	while (*stk_a != node)
+	while (*stk_a != nd_a)
 	{
 		rev_rotate(stk_a);
 		write(1, "rra\n", 4);
 	}
-	while (*stk_b != prev)
+	while (*stk_b != nd_b)
 	{
 		rev_rotate(stk_b);
 		write(1, "rrb\n", 4);
@@ -56,17 +56,17 @@ void	do_sync_r_rot(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev)
 
 // Decides wether rotation or rev rotation is cheaper for a sync move.
 // Returns true if rotations is cheaper and false if rev_rotation is cheaper
-t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
+t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *nd_a, t_stk *nd_b)
 {
 	int		rotation;
 	int		rev_rotation;
 
-	rotation = get_rot_cost(stk_a, node);
-	rev_rotation = get_rev_rot_cost(stk_a, node);
-	if (get_rot_cost(stk_b, prev) > rotation)
-		rotation = get_rot_cost(stk_b, prev);
-	if (get_rev_rot_cost(stk_b, prev) > rev_rotation)
-		rev_rotation = get_rev_rot_cost(stk_b, prev);
+	rotation = get_rot_cost(stk_a, nd_a);
+	rev_rotation = get_rev_rot_cost(stk_a, nd_a);
+	if (get_rot_cost(stk_b, nd_b) > rotation)
+		rotation = get_rot_cost(stk_b, nd_b);
+	if (get_rev_rot_cost(stk_b, nd_b) > rev_rotation)
+		rev_rotation = get_rev_rot_cost(stk_b, nd_b);
 	if (rotation < rev_rotation)
 		return (true);
 	return (false);
@@ -74,27 +74,24 @@ t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 
 // Depending on result of sync_r_or_rr calls for sync_rotate
 // or sync_rev_rotate
-void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node)
+void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b)
 {
-	t_stk	*prev;
-
-	prev = get_previous(*stk_b, node);
-	if (sync_r_or_rr(*stk_a, *stk_b, node, prev) == true)
+	if (sync_r_or_rr(*stk_a, *stk_b, nd_a, nd_b) == true)
 	{
 		printf("rotate\n");
-		do_sync_rotate(stk_a, stk_b, node, prev);
+		do_sync_rotate(stk_a, stk_b, nd_a, nd_b);
 	}
 	else
 	{
 		printf("rev_rotate\n");
-		do_sync_r_rot(stk_a, stk_b, node, prev);
+		do_sync_r_rot(stk_a, stk_b, nd_a, nd_b);
 	}
 }
 /*
 int	main(void)
 {
 	t_stk	*cheapest;
-	t_stk	*prev;
+	t_stk	*nd_b;
 	t_stk	*stk_a;
 	t_stk	*stk_b;
 	stk_a = tst_make_stack(5, 23, 1);
@@ -106,7 +103,7 @@ int	main(void)
 	while (stk_cnt_nds(stk_a) > 3)
 	{
 		cheapest = find_cheapest(stk_a, stk_b);
-		prev = get_previous(stk_b, cheapest);
+		nd_b = get_nd_bious(stk_b, cheapest);
 		sync_to_top(&stk_a, &stk_b, cheapest);
 		push(&stk_a, &stk_b);
 		write(1, "pb\n", 3);

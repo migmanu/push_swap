@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 21:28:20 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/12 21:50:15 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:55:48 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b)
 	t_stk	*max_b;
 	t_stk	*prev;
 
+	if (!*stk_b)
+		return ;
 	max_b = stk_get_max(*stk_b);
 	prev = get_previous_in_a(*stk_a, max_b);
-	if (get_rot_cost(stk_a, prev) < get_rev_rot_cost(stk_a, prev))
+	if (get_rot_cost(*stk_a, prev) < get_rev_rot_cost(*stk_a, prev))
 	{
 		rotate();
 	}

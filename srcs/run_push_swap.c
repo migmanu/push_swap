@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/12 21:29:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:50:51 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,25 @@ void push_to_stk_b(t_stk **stk_a, t_stk **stk_b)
 {
 	printf("push_to_stk_b init\n");
 	t_stk	*cheapest;
+	t_stk	*prev;
 	int		sync;
 	int		unsync;
 
 	while (stk_cnt_nds(*stk_a) > 3)
 	{
 		cheapest = find_cheapest(*stk_a, *stk_b);
-		sync = get_sync_cst(*stk_a, *stk_b, cheapest);
-		unsync = get_unsync_cst(*stk_a, *stk_b, cheapest);
+		prev = get_previous(*stk_b, cheapest);
+		sync = get_sync_cst(*stk_a, *stk_b, cheapest, prev);
+		unsync = get_unsync_cst(*stk_a, *stk_b, cheapest, prev);
 		if (sync < unsync)
 		{
 			printf("use sync\n");
-			sync_to_top(stk_a, stk_b, cheapest);
+			sync_to_top(stk_a, stk_b, cheapest, prev);
 		}
 		else
 		{
 			printf("use unsync\n");
-			unsync_to_top(stk_a, stk_b, cheapest);
+			unsync_to_top(stk_a, stk_b, cheapest, prev);
 		}
 		printf("push\n");
 		printf("stk_a\n");
