@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/13 19:52:41 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 20:04:56 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,9 @@ void	swap(t_stk **stk);
 
 // solve_three.c
 void	solve_three(t_stk **stk);
+
+// push_to_stk_a.c
+t_stk	*get_previous_in_a(t_stk *stk, t_stk *node);
+void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b);
 
 #endif
