@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/12 20:20:48 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 16:23:22 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	push(t_stk **src, t_stk **dest);
 
 // simulate.c
 t_stk	*find_cheapest(t_stk *stk_a, t_stk *stk_b);
-int		get_unsync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node);
-int		get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node);
+int		get_unsync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev);
+int		get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev);
 int		get_rev_rot_cost(t_stk *stk, t_stk *node);
 int		get_rot_cost(t_stk *stk, t_stk *node);
 
