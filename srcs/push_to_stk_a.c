@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 21:28:20 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 19:33:57 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 19:48:53 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b)
 		tst_print_stk(*stk_a);
 		printf("stk_b\n");
 		tst_print_stk(*stk_b);
+		write(1, "pa\n", 3);
 		push(stk_b, stk_a);
 	}
 }
