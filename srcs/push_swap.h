@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/13 20:04:56 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 22:42:41 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,8 @@ void	solve_three(t_stk **stk);
 // push_to_stk_a.c
 t_stk	*get_previous_in_a(t_stk *stk, t_stk *node);
 void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b);
+
+// cleaning.c
+t_bool	free_stk(t_stk *stk);
 
 #endif
