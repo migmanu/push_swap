@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:15:50 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/12 14:46:11 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 16:27:50 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,11 @@ int	get_rev_rot_cost(t_stk *stk, t_stk *node)
 // Get the amount of movements needed to get a node from stk_a and its
 // corresponding previous node from stk_b both into top position,
 // using either rr or rrr.
-int	get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node)
+int	get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 {
 	int		rot_cost;
 	int		rev_rot_cost;
-	t_stk	*prev;
 
-	prev = get_previous(stk_b, node);
 	printf("sync_cst init, node %ld prev: %ld\n", node->nbr, prev->nbr);
 	printf("stk a\n");
 	tst_print_stk(stk_a);
@@ -95,13 +93,11 @@ int	get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node)
 // Get the amount of movements needed to get a node from stk_a and its
 // corresponding previous node from stk_b both into top position,
 // using either ra and rra for stk_a and either rb and rrb for stk_b
-int	get_unsync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node)
+int	get_unsync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 {
 	int		node_cost;
 	int		prev_cost;
-	t_stk	*prev;
 
-	prev = get_previous(stk_b, node);
 	printf("get_unsync_cst init, node %ld prev: %ld\n", node->nbr, prev->nbr);
 	printf("stk a\n");
 	tst_print_stk(stk_a);
@@ -138,19 +134,21 @@ t_stk	*find_cheapest(t_stk *stk_a, t_stk *stk_b)
 	t_stk	*cheapest;
 	t_stk	*cur;
 	int		cost;
+	t_stk	*prev;
 
 	cost = INT_MAX;
 	cur = stk_a;
 	while (cur)
 	{
-		if (get_sync_cst(stk_a, stk_b, cur) < cost)
+		prev = get_previous(stk_b, cur);
+		if (get_sync_cst(stk_a, stk_b, cur, prev) < cost)
 		{
-			cost = get_sync_cst(stk_a, stk_b, cur);
+			cost = get_sync_cst(stk_a, stk_b, cur, prev);
 			cheapest = cur;
 		}
-		if (get_unsync_cst(stk_a, stk_b, cur) < cost)
+		if (get_unsync_cst(stk_a, stk_b, cur, prev) < cost)
 		{
-			cost = get_unsync_cst(stk_a, stk_b, cur);
+			cost = get_unsync_cst(stk_a, stk_b, cur, prev);
 			cheapest = cur;
 		}
 		cur = cur->next;
