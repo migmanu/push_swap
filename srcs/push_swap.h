@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/13 16:23:22 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/13 18:41:41 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,10 @@ int		get_rot_cost(t_stk *stk, t_stk *node);
 t_stk	*get_previous(t_stk *stk, t_stk *node);
 
 // sync_rotations.c
-t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev);
-void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *node, t_stk *prev);
-void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node);
+void	do_sync_rotate(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
+void	do_sync_r_rot(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
+t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *nd_a, t_stk *nd_b);
+void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a);
 
 // unsync_rotations.c
 void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *node);
