@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/14 18:50:07 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 19:03:19 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_stk	*push_two(t_stk **stk_a)
 // push_to_stk_a.
 void	order_stk_a(t_stk **stk_a, t_stk *min)
 {
-
 	if (get_rot_cost(*stk_a, min) < get_rev_rot_cost(*stk_a, min))
 	{
 		write_n_rotate(stk_a, min, 1);
@@ -49,7 +48,7 @@ void	order_stk_a(t_stk **stk_a, t_stk *min)
 
 // Takes care of pushing the cheapest node from stk_a
 // into stk_b
-void push_to_stk_b(t_stk **stk_a, t_stk **stk_b)
+void	push_to_stk_b(t_stk **stk_a, t_stk **stk_b)
 {
 	t_stk	*cheapest;
 	t_stk	*prev;
@@ -93,8 +92,6 @@ t_bool	run_push_swap(t_stk **stk_a)
 	solve_three(stk_a);
 	push_to_stk_a(stk_a, &stk_b);
 	order_stk_a(stk_a, stk_get_min(*stk_a));
-	//printf("end resulting\n");
-	//tst_print_stk(*stk_a);
 	free_stk(stk_b);
 	free_stk(*stk_a);
 	return (true);

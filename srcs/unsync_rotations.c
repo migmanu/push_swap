@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 01:13:41 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/14 12:31:23 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 19:05:17 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 // Function needed because of lines limits. If toggle 1 it prints ra,
 // else, rb
-void	write_n_rotate(t_stk **stk, t_stk *node, int	toggle)
+void	write_n_rotate(t_stk **stk, t_stk *node, int toggle)
 {
-	while(*stk != node)
+	while (*stk != node)
 	{
 		if (toggle == 1)
 			write(1, "ra\n", 3);
 		if (toggle == 0)
 			write(1, "rb\n", 3);
-		rotate(stk);
+		rotate (stk);
 	}
 }
 
 // Function needed because of lines limits. If toggle 1 it prints rra,
 // else, rrb
-void	write_n_rev_rotate(t_stk **stk, t_stk *node, int	toggle)
+void	write_n_rev_rotate(t_stk **stk, t_stk *node, int toggle)
 {
-	while(*stk != node)
+	while (*stk != node)
 	{
 		if (toggle == 1)
 			write(1, "rra\n", 4);
 		if (toggle == 0)
 			write(1, "rrb\n", 4);
-		rev_rotate(stk);
+		rev_rotate (stk);
 	}
 }
 
