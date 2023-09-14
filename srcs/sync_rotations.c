@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:52:38 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 18:52:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:30:44 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,10 @@ void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b)
 {
 	if (sync_r_or_rr(*stk_a, *stk_b, nd_a, nd_b) == true)
 	{
-		printf("rotate\n");
 		do_sync_rotate(stk_a, stk_b, nd_a, nd_b);
 	}
 	else
 	{
-		printf("rev_rotate\n");
 		do_sync_r_rot(stk_a, stk_b, nd_a, nd_b);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:15:50 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 18:34:45 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:30:00 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,6 @@ int	get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 	int		rot_cost;
 	int		rev_rot_cost;
 
-	printf("sync_cst init, node %ld prev: %ld\n", node->nbr, prev->nbr);
-	printf("stk a\n");
-	tst_print_stk(stk_a);
-	printf("stk b\n");
-	tst_print_stk(stk_b);
 	if (get_rot_cost(stk_a, node) > get_rot_cost(stk_b, prev))
 	{
 		rot_cost = get_rot_cost(stk_a, node);
@@ -83,10 +78,8 @@ int	get_sync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 	}
 	if (rot_cost < rev_rot_cost)
 	{
-		printf("sync cost %d\n", rot_cost);
 		return (rot_cost);
 	}
-	printf("sync cost %d\n", rev_rot_cost);
 	return (rev_rot_cost);
 }
 
@@ -98,32 +91,22 @@ int	get_unsync_cst(t_stk *stk_a, t_stk *stk_b, t_stk *node, t_stk *prev)
 	int		node_cost;
 	int		prev_cost;
 
-	printf("get_unsync_cst init, node %ld prev: %ld\n", node->nbr, prev->nbr);
-	printf("stk a\n");
-	tst_print_stk(stk_a);
-	printf("stk b\n");
-	tst_print_stk(stk_b);
 	if (get_rot_cost(stk_a, node) < get_rev_rot_cost(stk_a, node))
 	{
-		printf("stk_a\nrotation smaller:%ld\n",get_rot_cost(stk_a, node));
 		node_cost = get_rot_cost(stk_a, node);
 	}
 	else
 	{
-		printf("stk_a\nrev_rotation smaller:%ld\n",get_rev_rot_cost(stk_a, node));
 		node_cost = get_rev_rot_cost(stk_a, node);
 	}
 	if (get_rot_cost(stk_b, prev) < get_rev_rot_cost(stk_b, prev))
 	{
-		printf("stk_b\nrotation smaller:%ld\n",get_rot_cost(stk_b, prev));
 		prev_cost = get_rot_cost(stk_b, prev);
 	}
 	else
 	{
-		printf("stk_b\nrev_rotation smaller:%ld\n",get_rev_rot_cost(stk_b, prev));
 		prev_cost = get_rev_rot_cost(stk_b, prev);
 	}
-	printf("unsync cost %d\n", node_cost + prev_cost);
 	return (node_cost + prev_cost);
 }
 
@@ -153,7 +136,6 @@ t_stk	*find_cheapest(t_stk *stk_a, t_stk *stk_b)
 		}
 		cur = cur->next;
 	}
-	printf("cheapest node is %ld\n", cheapest->nbr);
 	return (cheapest);
 }
 /*

@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 21:28:20 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 19:56:45 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:28:50 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ t_stk	*get_previous_in_a(t_stk *stk, t_stk *node)
 			previous = curr;
 		curr = curr->next;
 	}
-	printf("prev node is %ld\n", previous->nbr);
 	return (previous);
 }
 
 void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b)
 {
-	printf("push_to_stk_a init\n");
 	t_stk	*max_b;
 	t_stk	*prev;
 	int		sync;
@@ -49,19 +47,12 @@ void	push_to_stk_a(t_stk **stk_a, t_stk **stk_b)
 		unsync = get_unsync_cst(*stk_a, *stk_b, prev, max_b);
 		if (sync < unsync)
 		{
-			printf("use sync\n");
 			sync_to_top(stk_a, stk_b, prev, max_b);
 		}
 		else
 		{
-			printf("use unsync\n");
 			unsync_to_top(stk_a, stk_b, prev, max_b);
 		}
-		printf("push\n");
-		printf("stk_a\n");
-		tst_print_stk(*stk_a);
-		printf("stk_b\n");
-		tst_print_stk(*stk_b);
 		write(1, "pa\n", 3);
 		push(stk_b, stk_a);
 	}

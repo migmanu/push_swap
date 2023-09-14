@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/14 12:23:01 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:34:48 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	order_stk_a(t_stk **stk_a, t_stk *min)
 // into stk_b
 void push_to_stk_b(t_stk **stk_a, t_stk **stk_b)
 {
-	printf("push_to_stk_b init\n");
 	t_stk	*cheapest;
 	t_stk	*prev;
 	int		sync;
@@ -65,19 +64,12 @@ void push_to_stk_b(t_stk **stk_a, t_stk **stk_b)
 		unsync = get_unsync_cst(*stk_a, *stk_b, cheapest, prev);
 		if (sync < unsync)
 		{
-			printf("use sync\n");
 			sync_to_top(stk_a, stk_b, cheapest, prev);
 		}
 		else
 		{
-			printf("use unsync\n");
 			unsync_to_top(stk_a, stk_b, cheapest, prev);
 		}
-		printf("push\n");
-		printf("stk_a\n");
-		tst_print_stk(*stk_a);
-		printf("stk_b\n");
-		tst_print_stk(*stk_b);
 		write(1, "pb\n", 3);
 		push(stk_a, stk_b);
 	}
@@ -94,8 +86,8 @@ t_bool	run_push_swap(t_stk **stk_a)
 	solve_three(stk_a);
 	push_to_stk_a(stk_a, &stk_b);
 	order_stk_a(stk_a, stk_get_min(*stk_a));
-	printf("end resulting\n");
-	tst_print_stk(*stk_a);
+	//printf("end resulting\n");
+	//tst_print_stk(*stk_a);
 	free_stk(stk_b);
 	free_stk(*stk_a);
 	return (true);

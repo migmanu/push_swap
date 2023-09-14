@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:32:28 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/11 18:08:08 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:30:08 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ t_stk	*get_previous(t_stk *stk, t_stk *node)
 			previous = curr;
 		curr = curr->next;
 	}
-	printf("prev node is %ld\n", previous->nbr);
 	return (previous);
 }
 /*
