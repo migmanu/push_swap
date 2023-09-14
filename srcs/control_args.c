@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/14 12:18:13 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:47:12 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bool	check_str(char *str)
 }
 
 // Applies the check_str to each node
-t_bool	check_args(int argc, char *argv[])
+t_bool	check_args(char *argv[])
 {
 	int	i;
 
