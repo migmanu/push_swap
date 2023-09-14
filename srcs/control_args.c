@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 18:45:10 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:18:13 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,19 @@
 
 // Basic function that check all chars are numbers. Toggle determines 
 // wether space character is considered ok
-t_bool	check_str(char *str, int toggle)
+t_bool	check_str(char *str)
 {
 	int	k;
 
 	k = 0;
 	if (str[k] == '\0')
 		return (false);
+	if (str[k] == '-' && str[k + 1] != '\0')
+		k++;
 	while (str[k] != '\0')
 	{
-		if (toggle == 0)
-		{
-			if (str[k] < 48 || str[k] > 58)
-				return (false);
-		}
-		else
-		{
-			if ((str[k] < 48 || str[k] > 58) && str[k] != 32)
-				return (false);
-		}
+		if (str[k] < 48 || str[k] > 58)
+			return (false);
 		k++;
 	}
 	return (true);
@@ -46,11 +40,30 @@ t_bool	check_args(int argc, char *argv[])
 	i = 0;
 	while (argv[i] != NULL)
 	{
-		if (check_str(argv[i], 0) == false)
+		if (check_str(argv[i]) == false)
 			return (false);
 		i++;
 	}
 	return (true);
+}
+
+// Function that checks if stack is already in ascending order
+void	check_if_ordered(t_stk *stk)
+{
+	t_stk	*cur;
+	long	nbr;
+
+	cur = stk;
+	nbr = INT_MIN;
+	while (cur)
+	{
+		if (cur->nbr < nbr)
+			return ;
+		nbr = cur->nbr;
+		cur = cur->next;
+	}
+	free_stk(stk);
+	exit(0);
 }
 
 // Goes through the linked list and checks for invalid numbers.
