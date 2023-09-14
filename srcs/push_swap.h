@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/14 12:47:25 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 19:04:07 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ t_bool	sync_r_or_rr(t_stk *stk_a, t_stk *stk_b, t_stk *nd_a, t_stk *nd_b);
 void	sync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
 
 // unsync_rotations.c
-void	write_n_rotate(t_stk **stk, t_stk *node, int	toggle);
-void	write_n_rev_rotate(t_stk **stk, t_stk *node, int	toggle);
+void	write_n_rotate(t_stk **stk, t_stk *node, int toggle);
+void	write_n_rev_rotate(t_stk **stk, t_stk *node, int toggle);
 void	unsync_to_top(t_stk **stk_a, t_stk **stk_b, t_stk *nd_a, t_stk *nd_b);
 
 // run_push_swap.c
