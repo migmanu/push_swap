@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:20 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/13 23:14:18 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:03:20 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef enum e_bool
 // control_args.c
 t_bool	check_str(char *str);
 t_bool	check_args(int argc, char *argv[]);
+void	check_if_ordered(t_stk *stk);
 void	check_numbers(t_stk *stk);
 
 // test_functions.c
