@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:26:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/13 22:54:53 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:23:01 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ t_stk	*push_two(t_stk **stk_a)
 		stk_b = *stk_a;
 		*stk_a = (*stk_a)->next;
 		stk_b->next = NULL;
+		write(1, "pb\n", 3);
 	}
 	if (stk_cnt_nds(*stk_a) > 3)
 	{
 		push(stk_a, &stk_b);
+		write(1, "pb\n", 3);
 	}
 	return (stk_b);
 }
