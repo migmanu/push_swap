@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:23:16 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 18:45:04 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/15 19:53:15 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,26 @@ t_bool	free_stk(t_stk *stk)
 		tmp = NULL;
 	}
 	return (true);
+}
+
+// Function used to free created vector in case of arg error.
+void	free_vector(int argc, char *argv[])
+{
+	int	i;
+
+	if (argv == NULL)
+		return ;
+	i = 0;
+	while (i < argc)
+	{
+		argv[i] = NULL;
+		free(argv[i]);
+		argv[i] = NULL;
+		i++;
+	}
+	argv = NULL;
+	free(argv);
+	argv = NULL;
 }
 
 /*

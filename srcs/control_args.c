@@ -6,14 +6,13 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/14 12:47:12 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/15 20:03:11 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Basic function that check all chars are numbers. Toggle determines 
-// wether space character is considered ok
+// Basic function that check all chars are numbers.
 t_bool	check_str(char *str)
 {
 	int	k;
@@ -33,7 +32,7 @@ t_bool	check_str(char *str)
 }
 
 // Applies the check_str to each node
-t_bool	check_args(char *argv[])
+void	check_args(int argc, char *argv[])
 {
 	int	i;
 
@@ -41,10 +40,13 @@ t_bool	check_args(char *argv[])
 	while (argv[i] != NULL)
 	{
 		if (check_str(argv[i]) == false)
-			return (false);
+		{
+			free_vector(argc, argv);
+			write(1, "Error\n", 6);
+			exit(0);
+		}
 		i++;
 	}
-	return (true);
 }
 
 // Function that checks if stack is already in ascending order
@@ -72,15 +74,16 @@ void	check_numbers(t_stk *stk)
 {
 	t_stk	*curr;
 	t_stk	*compare;
-	long	curr_nbr;
+	long curr_nbr;
 
 	curr = stk;
 	while (curr->next != NULL)
 	{
 		curr_nbr = curr->nbr;
+		printf("curr nbr %ld\n", curr->nbr);
 		if (curr_nbr < INT_MIN || curr_nbr > INT_MAX)
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		compare = curr->next;
@@ -88,7 +91,7 @@ void	check_numbers(t_stk *stk)
 		{
 			if (curr->nbr == compare->nbr)
 			{
-				write(1, "Error\n", 6);
+				write(2, "Error\n", 6);
 				exit(0);
 			}
 			compare = compare->next;

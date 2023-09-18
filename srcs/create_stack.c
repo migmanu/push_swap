@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 18:59:44 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/10 18:44:57 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/15 19:50:50 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ t_stk	*create_stack(int argc, char **vec)
 	i = 0;
 	while (i < argc)
 	{
-		new_node = malloc(sizeof(t_stk *));
+		new_node = malloc(sizeof(t_stk));
 		if (!new_node)
 			return (NULL);
-		new_node->nbr = ft_atol(vec[i++]);
+		new_node->nbr = ft_atol(vec[i]);
 		new_node->next = NULL;
+		i++;
 		if (stk_add_end(&stk_a, new_node) == false)
 			return (NULL);
 	}

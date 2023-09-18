@@ -6,7 +6,7 @@
 /*   By: jmigoya- <jmigoya-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:32:26 by jmigoya-          #+#    #+#             */
-/*   Updated: 2023/09/14 12:47:50 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/09/14 19:50:07 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	main(int argc, char *argv[])
 		vec = argv + 1;
 		argc -= 1;
 	}
-	if (check_args(vec) == false)
-		return (write(1, "Error\n", 6));
+	check_args(argc, vec);
 	stk_a = create_stack(argc, vec);
 	check_numbers(stk_a);
 	check_if_ordered(stk_a);
