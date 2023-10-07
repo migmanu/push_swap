@@ -6,7 +6,7 @@
 /*   By: migmanu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:44:30 by migmanu           #+#    #+#             */
-/*   Updated: 2023/09/15 20:03:11 by migmanu          ###   ########.fr       */
+/*   Updated: 2023/10/07 17:25:29 by migmanu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,14 @@ void	check_numbers(t_stk *stk)
 {
 	t_stk	*curr;
 	t_stk	*compare;
-	long curr_nbr;
 
 	curr = stk;
-	while (curr->next != NULL)
+	while (curr != NULL)
 	{
-		curr_nbr = curr->nbr;
-		printf("curr nbr %ld\n", curr->nbr);
-		if (curr_nbr < INT_MIN || curr_nbr > INT_MAX)
+		if (curr->nbr < INT_MIN || curr->nbr > INT_MAX)
 		{
 			write(2, "Error\n", 6);
+			free_stk(stk);
 			exit(0);
 		}
 		compare = curr->next;
@@ -92,6 +90,7 @@ void	check_numbers(t_stk *stk)
 			if (curr->nbr == compare->nbr)
 			{
 				write(2, "Error\n", 6);
+				free_stk(stk);
 				exit(0);
 			}
 			compare = compare->next;
