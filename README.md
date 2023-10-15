@@ -1,5 +1,7 @@
 # push_swap: A 42 School coding project
 
+![](https://github.com/migmanu/push_swap/blob/main/push_swap_vid.gif)
+
 `push_swap` is probably my favorite project so far. It was definitely a challenge for me and it taught me many important lessons. 
 In the next paragraphs, I will share how I solved it and what was my experience.
 
